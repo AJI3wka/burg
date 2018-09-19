@@ -1,0 +1,507 @@
+$fontfamily:'MuseoSansCyrl';
+$afont:'MuseoSansCyrl';
+$wievport: 1200px;
+$dark: #141414;
+@mixin ibw() {
+    text-align: center;
+    font-size: 0;
+    &>* {
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@mixin sec() {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background-size: cover!important;
+    &>div {
+        max-width: 1020px;
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat
+}
+
+:after,
+:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both
+}
+
+sup:after,
+sup:before,
+a:after,
+a:before,
+br:after,
+br:before,
+img:after,
+img:before,
+span:after,
+span:before,
+table:after,
+table:before,
+td:after,
+td:before,
+tr:after,
+tr:before {
+    content: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-size: 1em;
+    font-weight: inherit;
+    text-align: center;
+    font-family: $afont;
+    font-weight: 400;
+    letter-spacing: 0.01em
+}
+
+body {
+    font-family: $fontfamily, sans-serif;
+    font-weight: 400;
+    color: $dark;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    outline: 0!important
+}
+
+button,
+input,
+textarea {
+    outline: none;
+    border: none;
+}
+
+section {
+    @include sec();
+}
+
+#maket {
+    position: absolute;
+        top: -2693px;
+    left: 0;
+    width: 100%;
+    background: url(../maket.jpg) no-repeat top center;
+    height: 13200px;
+    opacity: 0.5;
+    z-index: 10;
+}
+
+.ibw {
+    @include ibw();
+}
+
+.sec1 {
+    margin-top: 8px;
+    margin-bottom: 21px;
+    .ibw {
+        text-align: left;
+        padding-left: 14px;
+        margin-bottom: 41px;
+        .logo {
+            width: 144px;
+            height: 63px;
+            background-color: #d8d8d8;
+            line-height: 63px;
+            color: black;
+            text-align: center;
+            font-size: 18px;
+        }
+        .menu {
+            margin-left: 20px;
+            position: relative;
+            margin-top: 8px;
+            &:before {
+                width: 2.2px;
+                height: 8.7px;
+                transform: rotate(4545deg);
+                border-radius: 1.6px;
+                background-color: #151515;
+                position: absolute;
+                top: 19px;
+                left: 50px;
+            }
+            .btn {
+                letter-spacing: 0.5px;
+                color: #151515;
+                font-family: MuseoSansCyrl;
+                font-size: 16px;
+                width: 183px;
+                height: 49px;
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: 500;
+                line-height: 48px;
+                border-right: 1px solid black;
+                cursor: pointer;
+            }
+            .list {
+                &.pos1 {}
+                &.pos2 {}
+                &.pos3 {}
+                &.pos4 {}
+                &.pos5 {}
+            }
+        }
+        .phone {
+            font-family: MuseoSansCyrl;
+            font-size: 16px;
+            display: inline-block;
+            color: #000000;
+            margin-left: 44px;
+            padding-top: 23px;
+            font-weight: 600;
+        }
+        .worktime {
+            font-family: MuseoSansCyrl;
+            font-size: 16px;
+            display: inline-block;
+            color: #000000;
+            margin-left: 66px;
+            padding-top: 21px;
+            font-weight: 500;
+            position: relative;
+            &:before {
+                width: 8px;
+                height: 8px;
+                background-color: green;
+                display: inline-block;
+                position: absolute;
+                left: -16px;
+                border-radius: 100%;
+                top: 28px;
+            }
+        }
+        .korzina {
+            font-family: MuseoSansCyrl;
+            font-size: 16px;
+            display: inline-block;
+            margin-left: 84px;
+            width: 48px;
+            height: 48px;
+            margin-top: 8px;
+            border-radius: 100%;
+            background-color: black;
+            background-image: url(../img/shoping-cart.png);
+            background-position: center;
+        }
+    }
+}
+
+.sld1 {
+    .main_burg {
+        margin-left: 84px;
+        .slide_1 {
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 300;
+            padding-bottom: 4px;
+            a.main {}
+            a.burgers {}
+        }
+        p.brgs {
+            font-weight: 900;
+            text-align: left;
+            font-size: 40px;
+            color: #151515;
+        }
+    }
+}
+
+.burgs {
+    padding-top: 61px;
+    text-align: center;
+    font-size: 0;
+    .item {
+        width: 416px;
+        border-radius: 12px;
+        display: inline-block;
+        border: solid 1px #f5c81e;
+        vertical-align: top;
+        text-align: center;
+        margin: 0 9px 0;
+        padding-top: 40px;
+        p.h2 {
+            font-size: 34px;
+            font-weight: 900;
+            padding-bottom: 24px;
+        }
+        .img_b {
+            width: 320px;
+            height: 230px;
+            border: solid 1.3px #f8e71c;
+        }
+        p.ingredient {}
+        .prc {
+            .price {
+                span.c {}
+            }
+            .weight {
+                span.g {}
+            }
+        }
+        button.add {}
+    }
+    .item {
+        width: 416px;
+        border-radius: 12px;
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        margin: 0px 9px 0;
+        border: solid 1px #f5c81e;
+        padding: 40px 2px 2px;
+        position: relative;
+        .active {
+            background-image: url(../img/sign-check.png);
+            background-position: center;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background-color: #f5c81e;
+            right: -11px;
+            top: -11px;
+            border: 3px solid white;
+        }
+        &:hover {
+            border: solid 3px #f5c81e;
+            padding: 38px 0 0;
+        }
+        .img_b {
+            width: 320px;
+            height: 230px;
+            border: solid 1.3px #f8e71c;
+            margin: 0px auto 24px;
+        }
+        p.ingredient {
+            font-size: 16px;
+            text-align: center;
+            padding: 0 46px 0px;
+            font-weight: 500;
+            line-height: 24px;
+            color: #151515;
+            padding-bottom: 24px;
+        }
+        .prc {
+            text-align: left;
+            padding-left: 94px;
+            margin-bottom: 27px;
+            .price {
+                font-size: 18px;
+                font-weight: 900;
+                color: #151515;
+                display: inline-block;
+                span.c {
+                    display: inline-block;
+                    font-weight: 500;
+                    padding-left: 2px;
+                }
+            }
+            .weight {
+                font-size: 18px;
+                font-weight: 900;
+                color: #151515;
+                display: inline-block;
+                margin-left: 24px;
+                span.g {
+                    display: inline-block;
+                    font-weight: 500;
+                    padding-left: 2px;
+                }
+            }
+        }
+        .button_wrap {
+            margin-bottom: 47px;
+            button.add {
+                width: 297px;
+                height: 56px;
+                border-radius: 27px;
+                background-color: #151515;
+                color: white;
+                font-size: 18px;
+                font-weight: 900;
+                line-height: 22px;
+                position: relative;
+                &:after {
+                    background-image: url(../img/add.png);
+                    width: 40px;
+                    height: 40px;
+                    display: inline-block;
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                }
+                &:hover {
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                }
+            }
+            .added {
+                button.korz {
+                    width: 115px;
+                    height: 56px;
+                    border-radius: 27px;
+                    background-color: #151515;
+                    display: inline-block;
+                    background-image: url(../img/shoping-cart.png);
+                    background-position: center;
+                    &:hover {
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                    }
+                }
+                .num {
+                    display: inline-block;
+                    margin-left: 30px;
+                    vertical-align: top;
+                    button.minus {
+                        width: 56px;
+                        height: 56px;
+                        border-radius: 27px;
+                        background-color: #151515;
+                        display: inline-block;
+                        color: white;
+                        font-size: 30px;
+                        line-height: 56px;
+                        &:hover {
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                        }
+                    }
+                    p.howmuch {
+                        font-size: 18px;
+                        font-weight: 500;
+                        display: inline-block;
+                        margin: 0 15px;
+                    }
+                    button.plus {
+                        width: 56px;
+                        height: 56px;
+                        border-radius: 27px;
+                        color: white;
+                        font-size: 30px;
+                        line-height: 56px;
+                        background-color: #151515;
+                        display: inline-block;
+                        &:hover {
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    &>.ibw {
+        text-align: left;
+        padding-left: 14px;
+        border-top: 1px solid #ebebeb;
+        line-height: 70px;
+        .logo_f {
+            width: 110px;
+            height: 48px;
+            background-color: #d8d8d8;
+            line-height: 48px;
+            color: black;
+            text-align: center;
+            font-size: 18px;
+            margin-left: 193px;
+            vertical-align: middle;
+        }
+        .menu {
+            margin-left: 15px;
+            height: 48px;
+                line-height: 44px;
+            position: relative;
+            vertical-align: middle;
+            .list {
+                font-size: 16px;
+
+                a.st1 {
+                        margin-left: 44px;
+                     font-weight: 700;
+
+                }
+                a.st2 {
+                    margin-left: 37px;
+                    font-weight: 700;
+                }
+                a.st3 {
+                    margin-left: 35px;
+                    font-weight: 700;
+                }
+                a.st4 {
+                    margin-left: 37px;
+                    font-weight: 700;
+                }
+                a.st5 {
+                       margin-left: 37px;
+                    font-weight: 700;
+                }
+                a.inst {
+                    margin-left: 52px;
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../img/instagram.png);
+                    &:last-of-type {
+                        background-image: url(../img/facebook.png);
+                            margin-left: 44px;
+                    }
+                }
+                a {
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+    &>.podval {
+        .copyright {
+            display: inline-block;
+                margin-left: 193px;
+                position: relative;
+                    font-size: 12px;
+
+                &:after{
+                   height: 24px;
+                    width: 72px;
+                    display: inline-block;
+                    background-image: url(../img/color.png);
+                    background-repeat: no-repeat;
+                    vertical-align: middle;
+                    margin-left: 9px;
+                }
+        }
+        .mail {
+            display: inline-block;
+                    margin-left: 199px;
+        }
+        .callback {
+            display: inline-block;
+                margin-left: 69px;
+        }
+    }
+}

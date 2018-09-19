@@ -1,0 +1,403 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+:after,
+:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  clear: both; }
+
+sup:after,
+sup:before,
+a:after,
+a:before,
+br:after,
+br:before,
+img:after,
+img:before,
+span:after,
+span:before,
+table:after,
+table:before,
+td:after,
+td:before,
+tr:after,
+tr:before {
+  content: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: 1em;
+  font-weight: inherit;
+  text-align: center;
+  font-family: "MuseoSansCyrl";
+  font-weight: 400;
+  letter-spacing: 0.01em; }
+
+body {
+  font-family: "MuseoSansCyrl", sans-serif;
+  font-weight: 400;
+  color: #141414; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: 0 !important; }
+
+button,
+input,
+textarea {
+  outline: none;
+  border: none; }
+
+section {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  background-size: cover !important; }
+  section > div {
+    max-width: 1020px;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    margin: 0 auto; }
+
+#maket {
+  position: absolute;
+  top: -2693px;
+  left: 0;
+  width: 100%;
+  background: url(../maket.jpg) no-repeat top center;
+  height: 13200px;
+  opacity: 0.5;
+  z-index: 10; }
+
+.ibw {
+  text-align: center;
+  font-size: 0; }
+  .ibw > * {
+    font-size: 1rem;
+    display: inline-block;
+    vertical-align: top; }
+
+.sec1 {
+  margin-top: 8px;
+  margin-bottom: 21px; }
+  .sec1 .ibw {
+    text-align: left;
+    padding-left: 14px;
+    margin-bottom: 41px; }
+    .sec1 .ibw .logo {
+      width: 144px;
+      height: 63px;
+      background-color: #d8d8d8;
+      line-height: 63px;
+      color: black;
+      text-align: center;
+      font-size: 18px; }
+    .sec1 .ibw .menu {
+      margin-left: 20px;
+      position: relative;
+      margin-top: 8px; }
+      .sec1 .ibw .menu:before {
+        width: 2.2px;
+        height: 8.7px;
+        transform: rotate(4545deg);
+        border-radius: 1.6px;
+        background-color: #151515;
+        position: absolute;
+        top: 19px;
+        left: 50px; }
+      .sec1 .ibw .menu .btn {
+        letter-spacing: 0.5px;
+        color: #151515;
+        font-family: MuseoSansCyrl;
+        font-size: 16px;
+        width: 183px;
+        height: 49px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 500;
+        line-height: 48px;
+        border-right: 1px solid black;
+        cursor: pointer; }
+    .sec1 .ibw .phone {
+      font-family: MuseoSansCyrl;
+      font-size: 16px;
+      display: inline-block;
+      color: #000000;
+      margin-left: 44px;
+      padding-top: 23px;
+      font-weight: 600; }
+    .sec1 .ibw .worktime {
+      font-family: MuseoSansCyrl;
+      font-size: 16px;
+      display: inline-block;
+      color: #000000;
+      margin-left: 66px;
+      padding-top: 21px;
+      font-weight: 500;
+      position: relative; }
+      .sec1 .ibw .worktime:before {
+        width: 8px;
+        height: 8px;
+        background-color: green;
+        display: inline-block;
+        position: absolute;
+        left: -16px;
+        border-radius: 100%;
+        top: 28px; }
+    .sec1 .ibw .korzina {
+      font-family: MuseoSansCyrl;
+      font-size: 16px;
+      display: inline-block;
+      margin-left: 84px;
+      width: 48px;
+      height: 48px;
+      margin-top: 8px;
+      border-radius: 100%;
+      background-color: black;
+      background-image: url(../img/shoping-cart.png);
+      background-position: center; }
+
+.sld1 .main_burg {
+  margin-left: 84px; }
+  .sld1 .main_burg .slide_1 {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 300;
+    padding-bottom: 4px; }
+  .sld1 .main_burg p.brgs {
+    font-weight: 900;
+    text-align: left;
+    font-size: 40px;
+    color: #151515; }
+
+.burgs {
+  padding-top: 61px;
+  text-align: center;
+  font-size: 0; }
+  .burgs .item {
+    width: 416px;
+    border-radius: 12px;
+    display: inline-block;
+    border: solid 1px #f5c81e;
+    vertical-align: top;
+    text-align: center;
+    margin: 0 9px 0;
+    padding-top: 40px; }
+    .burgs .item p.h2 {
+      font-size: 34px;
+      font-weight: 900;
+      padding-bottom: 24px; }
+    .burgs .item .img_b {
+      width: 320px;
+      height: 230px;
+      border: solid 1.3px #f8e71c; }
+  .burgs .item {
+    width: 416px;
+    border-radius: 12px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 0px 9px 0;
+    border: solid 1px #f5c81e;
+    padding: 40px 2px 2px;
+    position: relative; }
+    .burgs .item .active {
+      background-image: url(../img/sign-check.png);
+      background-position: center;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      background-color: #f5c81e;
+      right: -11px;
+      top: -11px;
+      border: 3px solid white; }
+    .burgs .item:hover {
+      border: solid 3px #f5c81e;
+      padding: 38px 0 0; }
+    .burgs .item .img_b {
+      width: 320px;
+      height: 230px;
+      border: solid 1.3px #f8e71c;
+      margin: 0px auto 24px; }
+    .burgs .item p.ingredient {
+      font-size: 16px;
+      text-align: center;
+      padding: 0 46px 0px;
+      font-weight: 500;
+      line-height: 24px;
+      color: #151515;
+      padding-bottom: 24px; }
+    .burgs .item .prc {
+      text-align: left;
+      padding-left: 94px;
+      margin-bottom: 27px; }
+      .burgs .item .prc .price {
+        font-size: 18px;
+        font-weight: 900;
+        color: #151515;
+        display: inline-block; }
+        .burgs .item .prc .price span.c {
+          display: inline-block;
+          font-weight: 500;
+          padding-left: 2px; }
+      .burgs .item .prc .weight {
+        font-size: 18px;
+        font-weight: 900;
+        color: #151515;
+        display: inline-block;
+        margin-left: 24px; }
+        .burgs .item .prc .weight span.g {
+          display: inline-block;
+          font-weight: 500;
+          padding-left: 2px; }
+    .burgs .item .button_wrap {
+      margin-bottom: 47px; }
+      .burgs .item .button_wrap button.add {
+        width: 297px;
+        height: 56px;
+        border-radius: 27px;
+        background-color: #151515;
+        color: white;
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 22px;
+        position: relative; }
+        .burgs .item .button_wrap button.add:after {
+          background-image: url(../img/add.png);
+          width: 40px;
+          height: 40px;
+          display: inline-block;
+          position: absolute;
+          top: 8px;
+          right: 8px; }
+        .burgs .item .button_wrap button.add:hover {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
+      .burgs .item .button_wrap .added button.korz {
+        width: 115px;
+        height: 56px;
+        border-radius: 27px;
+        background-color: #151515;
+        display: inline-block;
+        background-image: url(../img/shoping-cart.png);
+        background-position: center; }
+        .burgs .item .button_wrap .added button.korz:hover {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
+      .burgs .item .button_wrap .added .num {
+        display: inline-block;
+        margin-left: 30px;
+        vertical-align: top; }
+        .burgs .item .button_wrap .added .num button.minus {
+          width: 56px;
+          height: 56px;
+          border-radius: 27px;
+          background-color: #151515;
+          display: inline-block;
+          color: white;
+          font-size: 30px;
+          line-height: 56px; }
+          .burgs .item .button_wrap .added .num button.minus:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
+        .burgs .item .button_wrap .added .num p.howmuch {
+          font-size: 18px;
+          font-weight: 500;
+          display: inline-block;
+          margin: 0 15px; }
+        .burgs .item .button_wrap .added .num button.plus {
+          width: 56px;
+          height: 56px;
+          border-radius: 27px;
+          color: white;
+          font-size: 30px;
+          line-height: 56px;
+          background-color: #151515;
+          display: inline-block; }
+          .burgs .item .button_wrap .added .num button.plus:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
+
+footer > .ibw {
+  text-align: left;
+  padding-left: 14px;
+  border-top: 1px solid #ebebeb;
+  line-height: 70px; }
+  footer > .ibw .logo_f {
+    width: 110px;
+    height: 48px;
+    background-color: #d8d8d8;
+    line-height: 48px;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    margin-left: 193px;
+    vertical-align: middle; }
+  footer > .ibw .menu {
+    margin-left: 15px;
+    height: 48px;
+    line-height: 44px;
+    position: relative;
+    vertical-align: middle; }
+    footer > .ibw .menu .list {
+      font-size: 16px; }
+      footer > .ibw .menu .list a.st1 {
+        margin-left: 44px;
+        font-weight: 700; }
+      footer > .ibw .menu .list a.st2 {
+        margin-left: 37px;
+        font-weight: 700; }
+      footer > .ibw .menu .list a.st3 {
+        margin-left: 35px;
+        font-weight: 700; }
+      footer > .ibw .menu .list a.st4 {
+        margin-left: 37px;
+        font-weight: 700; }
+      footer > .ibw .menu .list a.st5 {
+        margin-left: 37px;
+        font-weight: 700; }
+      footer > .ibw .menu .list a.inst {
+        margin-left: 52px;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-image: url(../img/instagram.png); }
+        footer > .ibw .menu .list a.inst:last-of-type {
+          background-image: url(../img/facebook.png);
+          margin-left: 44px; }
+      footer > .ibw .menu .list a {
+        vertical-align: middle; }
+
+footer > .podval .copyright {
+  display: inline-block;
+  margin-left: 193px;
+  position: relative;
+  font-size: 12px; }
+  footer > .podval .copyright:after {
+    height: 24px;
+    width: 72px;
+    display: inline-block;
+    background-image: url(../img/color.png);
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-left: 9px; }
+
+footer > .podval .mail {
+  display: inline-block;
+  margin-left: 199px; }
+
+footer > .podval .callback {
+  display: inline-block;
+  margin-left: 69px; }
+
+/*# sourceMappingURL=style.css.map */
