@@ -347,71 +347,70 @@ header {
         }
     }
     .itogo {
-               float: right;
-            margin-right: 90px;
-            margin-left: 20px;
-            .l_i {
-                text-align: right;
-                display: inline-block;
-                line-height: 25px;
-                vertical-align: top;
-                p.dostavka {
-                    font-size: 18px;
-                    color: #151515;
-                    letter-spacing: 0.5px;
-                }
-                p.oplata {
-                    font-size: 18px;
-                    color: #151515;
-                    letter-spacing: 0.5px;
-                }
-            }
-            .r_i {
-                display: inline-block;
-                text-align: left;
-                vertical-align: top;
-                p.dstv {
-                    font-size: 18px;
-                    font-weight: 900;
-                    letter-spacing: 1.5px;
-                    color: #151515;
-                    padding-left: 8px;
-                    padding-top: 3px;
-                }
-                p.oplt {
-                    font-size: 24px;
-                    font-weight: 900;
-                    letter-spacing: 1.5px;
-                    text-align: left;
-                    color: #f5a623;
-                    padding-left: 8px;
-                    position: relative;
-                    top: -2px;
-                }
-            }
-        }
-        button.oforml{
-           width: 276px;
-            height: 56px;
-            border-radius: 28px;
-            background-color: #151515;
-            float: right;
-            line-height: 56px;
+        float: right;
+        margin-right: 90px;
+        margin-left: 20px;
+        .l_i {
+            text-align: right;
             display: inline-block;
+            line-height: 25px;
             vertical-align: top;
-            color: white;
-            background-image: url(../img/small.png);
-            background-position: 222px center;
+            p.dostavka {
+                font-size: 18px;
+                color: #151515;
+                letter-spacing: 0.5px;
+            }
+            p.oplata {
+                font-size: 18px;
+                color: #151515;
+                letter-spacing: 0.5px;
+            }
         }
+        .r_i {
+            display: inline-block;
+            text-align: left;
+            vertical-align: top;
+            p.dstv {
+                font-size: 18px;
+                font-weight: 900;
+                letter-spacing: 1.5px;
+                color: #151515;
+                padding-left: 8px;
+                padding-top: 3px;
+            }
+            p.oplt {
+                font-size: 24px;
+                font-weight: 900;
+                letter-spacing: 1.5px;
+                text-align: left;
+                color: #f5a623;
+                padding-left: 8px;
+                position: relative;
+                top: -2px;
+            }
+        }
+    }
+    button.oforml {
+        width: 276px;
+        height: 56px;
+        border-radius: 28px;
+        background-color: #151515;
+        float: right;
+        line-height: 56px;
+        display: inline-block;
+        vertical-align: top;
+        color: white;
+        background-image: url(../img/small.png);
+        background-position: 222px center;
+    }
     .pos_basket {
-           margin: 0px 90px 30px;
-            height: 104px;
-            border-radius: 12px;
-            background-color: #f7f7f7;
-            position: relative;
-            clear: both;
-            overflow: hidden;
-            
+        margin: 0px 90px 30px;
+        height: 104px;
+        border-radius: 12px;
+        background-color: #f7f7f7;
+        position: relative;
+        clear: both;
+        overflow: hidden;
         .close {
             position: absolute;
             width: 24px;
@@ -421,8 +420,6 @@ header {
             right: 25px;
             top: 40px;
         }
-
-
         .l_z {
             float: left;
             height: 100%;
@@ -463,7 +460,7 @@ header {
                     font-size: 18px;
                     display: inline-block;
                     margin-left: 81px;
-                     vertical-align: middle;
+                    vertical-align: middle;
                 }
             }
         }
@@ -485,7 +482,7 @@ header {
                 vertical-align: middle;
             }
             p.cina_dop {
-                display:none;
+                display: none;
             }
             .num {
                 margin-top: 0;
@@ -1719,8 +1716,8 @@ footer {
                 margin-right: 300px;
             }
             a.p6 {
-                   float: right;
-                    margin-right: 27px;
+                float: right;
+                margin-right: 27px;
             }
         }
         .pos_basket {
@@ -1735,7 +1732,7 @@ footer {
                 }
             }
             .r_z {
-                    width: 480px;
+                width: 480px;
                 p.cina {
                     margin-left: 60px;
                 }
@@ -2145,18 +2142,23 @@ footer {
                 p.brgs {}
             }
         }
+        .itogo {
+            margin-right: 240px;
+        }
         .korz {
+            margin: 0px 240px 20px;
             a.p3 {
-                margin-right: 370px;
+                margin-right: 170px;
             }
             a.p5 {
-                margin-left: 110px;
+                margin-left: 20px;
             }
             a.p6 {
                 margin-left: 91px;
             }
         }
         .pos_basket {
+            margin: 0px 240px 20px;
             .close {}
             .l_z {
                 .img_wrap {
@@ -2606,13 +2608,14 @@ footer {
                 display: none;
             }
         }
-        .itogo{    float: left;
-    margin-left: 190px;
-    margin-right: 0px;
-    }
-    button.oforml{
+        .itogo {
+            float: left;
+            margin-left: 190px;
+            margin-right: 0px;
+        }
+        button.oforml {
             margin-right: 55px;
-    }
+        }
         .pos_basket {
             margin: 0px 57px 20px;
             background-image: none;
@@ -2654,8 +2657,7 @@ footer {
                     margin-top: 43px;
                     display: block;
                     line-height: initial;
-                      margin-left: 0;
-
+                    margin-left: 0;
                 }
                 p.cina_dop {
                     display: none;
@@ -2678,7 +2680,6 @@ footer {
                     }
                 }
             }
-            
         }
         .l_main {
             width: 656px;
@@ -3206,19 +3207,18 @@ footer {
                 display: none;
             }
         }
-        .itogo{
-                float: none;
-    margin: 0 auto;
-    margin-left: 0;
-    text-align: center;
-    margin-bottom: 20px;
-
+        .itogo {
+            float: none;
+            margin: 0 auto;
+            margin-left: 0;
+            text-align: center;
+            margin-bottom: 20px;
         }
-        button.oforml{
-                margin: 0 auto;
-    text-align: center;
-    display: block;
-    float: none;
+        button.oforml {
+            margin: 0 auto;
+            text-align: center;
+            display: block;
+            float: none;
         }
         .pos_basket {
             margin: 0px 33px 20px;

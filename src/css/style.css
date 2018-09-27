@@ -1603,18 +1603,24 @@ footer > .podval .callback {
     .sec1 .sld1 .main_burg {
       padding-left: 133px;
       margin-bottom: 0px; }
-    .sec1 .korz a.p3 {
-      margin-right: 370px; }
-    .sec1 .korz a.p5 {
-      margin-left: 110px; }
-    .sec1 .korz a.p6 {
-      margin-left: 91px; }
-    .sec1 .pos_basket .r_z {
-      width: 551px; }
-      .sec1 .pos_basket .r_z p.cina {
-        margin-left: 60px; }
-      .sec1 .pos_basket .r_z .num {
-        margin-left: 143px; }
+    .sec1 .itogo {
+      margin-right: 240px; }
+    .sec1 .korz {
+      margin: 0px 240px 20px; }
+      .sec1 .korz a.p3 {
+        margin-right: 170px; }
+      .sec1 .korz a.p5 {
+        margin-left: 20px; }
+      .sec1 .korz a.p6 {
+        margin-left: 91px; }
+    .sec1 .pos_basket {
+      margin: 0px 240px 20px; }
+      .sec1 .pos_basket .r_z {
+        width: 551px; }
+        .sec1 .pos_basket .r_z p.cina {
+          margin-left: 60px; }
+        .sec1 .pos_basket .r_z .num {
+          margin-left: 143px; }
     .sec1 .l_main {
       width: 880px;
       height: 777px; }
