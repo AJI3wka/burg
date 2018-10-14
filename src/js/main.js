@@ -1,186 +1,69 @@
- function getURLParameter(name) {return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;} 
-    function run_geo(geo_url){
-        $.ajax({type: 'GET',url: geo_url,dataType: 'xml',
-            success: function(xml) {$(xml).find('ip').each(function(){
-            var city = $(this).find('city').text();
-            var region = $(this).find('region').text();
-            if(city!=region){var ipg = city+', '+region;}else{var ipg = city;}
-            $('<input type="hidden" />').attr({name: 'location', class: 'location', value:ipg}).appendTo("form");
-        });}});
-    }
+;
+"use strict";
 
+var global_build = false; //глобальная переменная используемая для определения билда
+var global_config = {
+  api:[{
+    h:'',
+    u:{}
+  }],
+  js:{
+      basic:[],
+      js_modules:[]
+  }
+};
 
-  function validateEmail(email) {var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;return re.test(email);};
+    global_config = false; //глобальная переменная для хранения конфига с файла global_config_file
+var global_config_file = source_url+'/config.json.dist'; //файл конфигурации
 
+/**
+ * [getJSON - функция получения джсона с адреса с колбеком, на чистом js. получает json по урл и возвращает либо ошибку либо данные с json]
+ * @param  {string}   url                   [url получение json'а]
+ * @param  {Function} callback(err,data)    [колбек при получении json'a.
+ *                                              err - сообщение об ошибке, data - обоект c json]
+ */
+var getJSON = function(url, callback) {
 
-
-    $.get("http://ipinfo.io", function(response) {geo_url='http://ipgeobase.ru:7020/geo?ip='+response.ip; run_geo(geo_url);}, "jsonp");
-    utm=[];$.each(["utm_source","utm_medium","utm_campaign","utm_term",'source_type','source','position_type','position','added','creative','matchtype'],function(i,v){$('<input type="hidden" />').attr({name: v, class: v, value: function(){if(getURLParameter(v) == undefined)return '-'; else return getURLParameter(v)}}).appendTo("form")});
-    $('<input type="hidden" />').attr({name: 'url', value: document.location.href}).appendTo("form");
-    $('<input type="hidden" />').attr({name: 'title', value: document.title}).appendTo("form");
-
-
-
-
-$(document).ready(function() {
-
-    $('.map').append('<iframe src="ajax/map.html"></iframe>');
-
-    $ ('input[name="name"]').blur( function () { if ( $ ( this ). val (). length  <  2 ) { $ ( this ). addClass ( ' error-input ' );}});
-    $ ('input[name="name"]').focus( function () { $ ( this ). removeClass ( ' error-input ' );});
-
-
-
-
-  $('input[name="phone"]').mask('+7 (999) 999-99-99');
-    $('input[name="phone"]').blur(function() {if($(this).val().length != 18) {$(this).addClass('error-input');}});
-  $('input[name="phone"]').focus(function() {$(this).removeClass('error-input');});
-
-    $('input[name="email"]').blur(function() {if(!validateEmail($(this).val())) {$(this).addClass('error-input');}});
-    $('input[name="email"]').focus(function() {$(this).removeClass('error-input');});
-
-
-	$('.xotite,.foot').click(function(){
-        $('.pop_z').show('#pop_form').arcticmodal();
-    });
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
     
-   $('.checkico').click(function(){
-    $(this).toggleClass('active'); 
-
-   }); 
-
-$('.pr').click(function(){
-    $(this).parent().children().removeClass('active_b'); 
-    $(this).addClass('active_b');
-    $(this).closest('section').find('.slide').removeClass('active_p');
-    $(this).closest('section').find('.slide[data-id="'+$(this).attr('data-id')+'"]').addClass('active_p');
+    xhr.onload = function() {
     
-   }); 
-$('.pr').first().trigger('click');
-     
-     
-$('.quest').click(function(){
-    if($(this).hasClass('active_q')){
-        $(this).removeClass('active_q'); 
-
-    }else{
-
-        $(this).parent().children().removeClass('active_q'); 
-        $(this).addClass('active_q'); 
-    }
-   }); 
-
-
-     $('.smallslide').children('a').click(function(e){
-        e.preventDefault(); 
-        var href = $(this).attr('href');
-        var $big_wrp = $(this).closest('.left');
-        $big_wrp.find('.fancy').removeClass('dom');
-        $big_wrp.find('.fancy[href="'+href+'"]').addClass('dom');
-
-     });
- 
-
-
-   var slider1 = $('.slider_1').bxSlider({
-        infiniteLoop: true,
-        // nextSelector:'#sld2r',
-        // prevSelector:'#sld2l',
-        controls: false,
-        pager:true,
-        pagerCustom:'#slider_1_control',
-        auto: false,
-        speed: 500,
-        minSlides: 1,
-        maxSlides: 1,
-        moveSlides: 1
-    });
-   var slider2 = $('.slider_2').bxSlider({
-        infiniteLoop: true,
-        nextSelector:'.sec14 .ar_right',
-        prevSelector:'.sec14 .ar_left',
-        controls: true, 
-        pager:false,
-        //pagerCustom:'#slider_2_control',
-        auto: false,
-        speed: 500,
-        minSlides: 1,
-        maxSlides: 1,
-        moveSlides: 1
-    });
-   var slider3 = $('.slider_3').bxSlider({
-        infiniteLoop: true,
-        nextSelector:'.sec15 .comanda .ar_right',
-         prevSelector:'.sec15 .comanda .ar_left',
-        controls: true, 
-        pager:false,
-       // pagerCustom:'#slider_3_control',
-        auto: false,
-        speed: 500,
-        minSlides:1,
-        maxSlides: 1,
-        moveSlides: 1,
-        slideWidth:316
-    });
-
-
-  $('.fancy').fancybox({maxWidth:'90%',maxHeight:'90%',padding:0,helpers:{overlay:{locked:false},title:null},afterShow:function(){$('.fancybox-wrap').swipe({swipe:function(event,direction){if(direction==='left'){$.fancybox.prev(direction);}if(direction==='right'){$.fancybox.next(direction);}}});}});
-
-
-  $('form').submit(function(e){
-        e.preventDefault(); 
-        $(this).find('input[type="text"]').trigger('blur');
-        if(!$(this).find('input[type="text"]').hasClass('error-input')&&   $(this).find('.checkico').hasClass('active')){
-            var type=$(this).attr('method');
-            var url=$(this).attr('action');
-            var data=$(this).serialize();
-            var track_event=$(this).find('input[name="event"]').val();
-            $.ajax({type: type, url: url, data: data,
-                success : function(){
-                    $.arcticmodal('close');$('#okgo').arcticmodal();
-                    //submit_track_event(track_event);
-                }
-            }); 
-        }else{
-
-            var eror_pop_text = ''; 
-
-            if ($(this).find('input[name="name"]').hasClass('error-input') && !$(this).find('input[name="phone"]').hasClass('error-input') && !$(this).find('input[name="email"]').hasClass('error-input')) {
-                eror_pop_text = 'Пожалуйста введите имя';
-            } else
-
-            if($(this).find('input[name="phone"]').hasClass('error-input') && !$(this).find('input[name="name"]').hasClass('error-input') && !$(this).find('input[name="email"]').hasClass('error-input')){
-                eror_pop_text = 'Пожалуйста введите телефон';
-            }else
-
-            if($(this).find('input[name="phone"]').hasClass('error-input') && $(this).find('input[name="name"]').hasClass('error-input') && !$(this).find('input[name="email"]').hasClass('error-input')){
-                eror_pop_text = 'Пожалуйста введите имя и телефон';
-            }
-
-            if ($(this).find('input[name="name"]').hasClass('error-input') && !$(this).find('input[name="phone"]').hasClass('error-input') && $(this).find('input[name="email"]').hasClass('error-input')) {
-                eror_pop_text = 'Пожалуйста введите имя и email';
-            } else
-
-            if($(this).find('input[name="phone"]').hasClass('error-input') && !$(this).find('input[name="name"]').hasClass('error-input') && $(this).find('input[name="email"]').hasClass('error-input')){
-                eror_pop_text = 'Пожалуйста введите телефон и email';
-            }else
-
-            if($(this).find('input[name="phone"]').hasClass('error-input') && $(this).find('input[name="name"]').hasClass('error-input') && $(this).find('input[name="email"]').hasClass('error-input')){
-                eror_pop_text = 'Пожалуйста введите имя, email и телефон';
-            }
-            else
-
-            if(!$(this).find('.checkico').hasClass('active')){
-                eror_pop_text = 'Пожалуйста согласитесь ';
-            }
-
-
-
-            $('#form-error-text').html(eror_pop_text)
-            $('#form-error-pop').arcticmodal(); 
+        var status = xhr.status;
+        
+        if (status == 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status);
         }
-    });
+    };
+    
+    xhr.send();
+};
 
 
 
-})
+var basic_scripts = [source_url+'/js/basic.js?v='+document.body.getAttribute('data-revision')];//в test/prod версии все basic скрипты объеденены
+
+if (global_build == false) {//если global_build == false - это dev версия
+
+	getJSON(global_config_file,function(err,data){//получаем config_file
+
+		global_config = data;//записываем конфигг в глобальную переменную
+        //создаем массив basic сприптов для загрузки
+        console.log('global_config = ',global_config);
+		for (var i = 0; i < global_config.js.basic.length; i++) {
+			
+			basic_scripts[i] = source_url+'/js/basic/'+global_config.js.basic[i]+'.js';
+		
+		}
+
+
+		async_load_js(basic_scripts);//загружаем массив скриптов
+	});
+
+}else{//если это test/prod загружаем 'js/basic.js'
+	async_load_js(basic_scripts);
+}
+

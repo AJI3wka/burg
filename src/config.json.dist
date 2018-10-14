@@ -1,0 +1,103 @@
+{ 	"__comment__":"коментарии которые записаны в параметры '__comment__' при сборке удаляються, используйет для коментирования только такой способ",
+
+	"__comment__":"конфиг SPA",
+	"__comment__":"параметр api содержин масив наборов урлов для АПИ в зависимости от сборки",
+	"api": [{ 
+		"__comment__":"девовские АПИ которые работают при разработке SPA ( h : l ) ",
+		"h": "l",
+		"u": {
+			"__comment__":"ниже набор АПИ-адресов который соответсвует модулям которыми используються",
+			"default":"https://atom.dnk.bz/api/v2/",
+			"crm":"https://atom.dnk.bz/CRM/api/",
+			"personal_data":"https://atom.dnk.bz/api/v2/"
+		}
+	}, {
+		"__comment__":"тестовое АПИ которые работают в тестовой сборке ( h : е ) ",
+		"h": "t",
+		"u": {
+			"default":"https://atom.dnk.bz/api/v2/",
+			"crm":"https://atom.dnk.bz/CRM/api/",
+			"personal_data":"https://atom.dnk.bz/api/v2/"
+		}
+	}, {
+		"__comment__":"продакшен АПИ которые работают в продакшен сборке ( h : p ) ",
+		"h": "p",
+		"u": {
+			"default":"https://atom.dnk.bz/api/v2/",
+			"crm":"https://atom.dnk.bz/CRM/api/",
+			"personal_data":"https://atom.dnk.bz/api/v2/"
+		}
+	},{ 
+		"__comment__":"девовские АПИ которые работают при разработке SPA ( h : l ) ",
+		"h": "l_s",
+		"u": {
+			"__comment__":"ниже набор АПИ-адресов который соответсвует модулям которыми используються",
+			"default":"https://steps.one/api/v2/",
+			"crm":"https://steps.one/CRM/api/",
+			"personal_data":"https://steps.one/api/v2/"
+		}
+	}, {
+		"__comment__":"тестовое АПИ которые работают в тестовой сборке ( h : е ) ",
+		"h": "t_s",
+		"u": {
+			"default":"https://steps.one/api/v2/",
+			"crm":"https://steps.one/CRM/api/",
+			"personal_data":"https://steps.one/api/v2/"
+		}
+	}, {
+		"__comment__":"продакшен АПИ которые работают в продакшен сборке ( h : p ) ",
+		"h": "p_s",
+		"u": {
+			"default":"https://steps.one/api/v2/",
+			"crm":"https://steps.one/CRM/api/",
+			"personal_data":"https://steps.one/api/v2/"
+		}
+	}],
+
+
+	"__comment__":"конфиг js частей. Если использованые модули не будут перечислены тут - сборка пройдет без использования их файлов",
+	"js": {
+		
+		"__comment__":"в basic перечисляются базовые JS которые загрузятся с js/basic/NAME.js, ВАЖНО - коментарии внутри basic запрещены(ломает сборку)",
+		"basic": [
+			"basic",
+			"api",
+			"navigation",
+			"validation",
+			"user_init"
+		],
+		"__comment__":"в js_modules перечисляются названия модулей используемые в сборке, ВАЖНО - коментарии внутри js_modules запрещены(ломает сборку)",
+		"js_modules": [ 
+			"promo",
+			"login",
+			"menu",
+			"user_tools",
+			"tools",
+			"balance",
+			"crm",
+			"personal_data",
+			"how_to",
+			"a_list",
+			"a_edit",
+			"lp1_list",
+			"lp1_edit",
+			"lp3_list",
+			"lp3_edit",
+			"preland_list",
+			"preland_edit",
+			"get_dom",
+			"service_pops",
+			"webinar",
+			"domains",
+			"helpers",
+			"experts",
+			"quiz_list",
+			"quiz_edit",
+			"quiz_editor",
+			"partner",
+			"ls_editors",
+			"step_ed_q",
+			"step_faq"
+		]
+	}
+}

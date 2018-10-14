@@ -1,61 +1,49 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+/.idea
+*.log
+*.properties
+*.iml
+target
+*/target
+/*.war
+/*.zip
+/*.jar
+/.project
+/.settings
+*/.externalToolBuilders
 
-# Folder config file
-Desktop.ini
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+pids
+logs
+results
+build
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
+prod
+test
 
-# Windows shortcuts
-*.lnk
+**/.idea/**
+.idea/workspace.xml
+.idea/jsLibraryMappings.xml
 
-# =========================
-# Operating System Files
-# =========================
 
-# OSX
-# =========================
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-validation-report.json
-validation-status.json
-
-backstop_data/**
-.ftppass
-
+# bower_componenets(for css regressions/testing)
 **/bower_components/**
-**/w3cErrors/**
-**/node_modules/**
-**.DS_Store**
-**Thumbs.db**
-**.editorconfig**
-**.grunt**
+# bower_componenets(for css regressions/testing)
+**/NEW/**
+
+node_modules
+magazin
+**/BACKUP/**
+**/OLD/**
+reg_quiz
+rsy
+**/preland_test/**			
+
+**/dist/**	
