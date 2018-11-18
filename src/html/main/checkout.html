@@ -1,0 +1,105 @@
+<section class="sec1">
+	
+	<div class="sld1">
+		<div class="main_burg">
+			<div class="slide_1">
+				<a href="/" class="main">Головна /</a>
+				<a href="/cart" class="main">Корзина /</a>
+				<a href="/checkout" class="burgers">Оформлення замовлення</a>
+			</div>
+			<p class="brgs">Оформлення замовлення</p>
+		</div>
+	</div>
+	<div class="ibw">
+		<div class="infm">
+			<p class="h2">Дані для заповнення</p>
+			<p class="h3">Ім'я<span> *</span></p>
+			<div class="inp-wrap">
+				<input type="text" name="name" placeholder="Ваше Ім'я">
+			</div>
+			<p class="h3">Телефон<span> *</span></p>
+			<div class="inp-wrap">
+				
+				<input type="text" name="phone" placeholder="Контактний телефон">
+				<span class="err-span">Впишіть ваш телефон</span>
+			</div>
+			<p class="h3">Вулиця<span> *</span></p>
+			<div class="inp-wrap">
+				<input type="text" name="street" placeholder="Куди доставляти" id="str_auto">
+				<span class="err-span">Впишіть вулицю доставки</span>
+			</div>
+			<div class="adr">
+				<div class="inp-wrap house">
+					<div class="pdrb">
+						<p class="h3">Буд<span> *</span></p>
+						<input class="min" name="house" id="house_auto" type="text" placeholder="№">
+					</div>
+					<div class="pdrb">
+						<p class="h3">Під.<span> *</span></p>
+						<input class="min" name="house_s" type="text" placeholder="№">
+					</div>
+					<div class="pdrb">
+						<p class="h3">Кв.<span> *</span></p>
+						<input class="min" name="flat" type="text" placeholder="№">
+					</div>
+					<span class="err-span">Впишіть номер будинку</span>
+				</div>
+			</div>
+				<div class="inp-wrap">
+					<div class="map" id="g_map"></div>
+					<span class="err-span">Ми не доставляємо за цією адресою</span>
+				</div>
+			<p class="h3">Коментар</p>
+			<textarea class="comment" name="comment" type="text" placeholder="Ваші пропозиції"></textarea>
+			<p class="h4">Оберіть спосіб оплати</p>
+			<div class="underline"></div>
+			<div class="pay">
+				<div class="inp-wrap house">
+					
+					<div class="gotivka tog" data-val="0">
+						<p class="pay_t">готівкою
+						<br>кур'єру</p>
+					</div>
+					<div class="kartka tog" data-val="1">
+						<p class="pay_t">карткою</p>
+					</div>
+					<span class="err-span">Оберіть спосіб оплати</span>
+					<input type="hidden" value="none" id="pay_s">
+				</div>
+			</div>
+			
+			<div class="add_info">
+				При замовленні на суму понад <span><span id="del"></span> грн,</span> оплата здійснюється лише карткою
+			</div>
+			<button class="ready">Оформити</button>
+		</div>
+		<div class="myorder">
+			<p class="h2">Ваше замовлення</p>
+			<!-- <div class="num_order">№ 0000001</div> -->
+			<div class="border"></div>
+			<div class="cart">
+				<div class="list">
+				
+				</div>
+
+				<div class="itogo">
+					<div class="l_i">
+						<p class="dostavka">доставка:</p>
+						<p class="oplata">до оплати:</p>
+					</div>
+					<div class="r_i">
+						<p class="dstv"><span></span> грн</p>
+						<p class="oplt"><span></span> грн</p>
+					</div>
+				</div>				
+			</div>
+			<div class="empty">
+			
+				<div class="ou">Ой, ваша корзина пуста,<br>бажаєте продовжити покупки?</div>
+				<button class="more">Продовжити покупки</button>
+				
+			</div>
+			
+		</div>
+	</div>
+</section>

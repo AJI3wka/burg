@@ -336,7 +336,15 @@ function get_json(type, url, data, funct, is_file, status_ER, background, cookie
                             }
                         }//прячем прелоадер
 
-                        show_alert_mess(err_text);                        
+
+                        /*костиль всіх костилів початок*/
+                        text = text.replace('bool(true)\n','').replace('bool(true)\n','')
+
+                        var data = JSON.parse(text);
+                        funct(data);
+                        /*костиль всіх костилів кінець*/
+
+                        //show_alert_mess(err_text);                        
                     }else{
 
                         critical_error();

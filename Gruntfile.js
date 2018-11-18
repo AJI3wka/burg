@@ -438,12 +438,12 @@ module.exports = function(grunt) {
                 options: {
                     replacements: [{
                         pattern:'source_url=""',
-                        replacement: 'source_url="<?php echo URL.\'/template/Atom\';?>"'
+                        replacement: 'source_url="<?php echo URL.\'/template/burger\';?>"'
                     },
                     {
                         pattern:'/js/init.js',
-                        replacement: "<?php echo URL.'/template/Atom';?>/js/init.js"
-                    },{
+                        replacement: "<?php echo URL.'/template/burger';?>/js/init.js"
+                    }/*,{
                         pattern:'data-lbl="atom.dnk.bz"',
                         replacement: 'data-lbl="<?php echo DOMAIN;?>"'
                     },{
@@ -464,7 +464,7 @@ module.exports = function(grunt) {
                     },{
                         pattern:"</body>",
                         replacement: '<?php if(DOMAIN == "steps.one"){include("html/lbl/foot_steps.html");}else{include("html/lbl/foot_atom.html");}?></body>'
-                    }]
+                    }*/]
                 }
 
             },
@@ -475,12 +475,12 @@ module.exports = function(grunt) {
                 options: {
                     replacements: [{
                         pattern:'source_url=""',
-                        replacement: 'source_url="<?php echo URL.\'/template/Atom\';?>"'
+                        replacement: 'source_url="<?php echo URL.\'/template/burger\';?>"'
                     },
                     {
                         pattern:'/js/init.js',
-                        replacement: "<?php echo URL.'/template/Atom';?>/js/init.js"
-                    },{
+                        replacement: "<?php echo URL.'/template/burger';?>/js/init.js"
+                    }/*,{
                         pattern:'data-lbl="atom.dnk.bz"',
                         replacement: 'data-lbl="<?php echo DOMAIN;?>"'
                     },{
@@ -501,7 +501,7 @@ module.exports = function(grunt) {
                     },{
                         pattern:"</body>",
                         replacement: '<?php if(DOMAIN == "steps.one"){include("html/lbl/foot_steps.html");}else{include("html/lbl/foot_atom.html");}?></body>'
-                    }]
+                    }*/]
                 }
 
             }
@@ -901,7 +901,7 @@ module.exports = function(grunt) {
                     spawn: true,
                     livereload: {
                         host: 'localhost',
-                        port: 3358, //LIVERELOAD_PORT
+                        port: 2201, //LIVERELOAD_PORT
                     }
                 },
                 //при изменеии любых сорс файлов

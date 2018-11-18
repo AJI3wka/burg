@@ -8,13 +8,37 @@ console.log('user_init start');
 var global_user_auth = false;
 var global_user_token = false;
 var global_front_version = false;
-
+var global_price_data = false;
+var global_delivery_price = false;//50;
+var global_delivery_min_cart = false;//250;
+var global_max_cache = false;//1000;
 var global_user_data;
+var global_list_getted = false;
 //переменная конфигурации АПИ (хранение всех адресов апи для модулей)
 var api_config;
 
 //start load_config
+function get_site_settings(callback){
 
+
+    //url для проверки токена
+    var url = 'https://miasorubka-burger.com.ua/api/Settings';
+
+    //отправляемые данные
+    // var data = {
+    //     userKey: user_token
+    // };
+    get_json('get', url, {}, function(data) {
+        global_delivery_price = parseInt(data.data.DELIVER_PRICE);
+
+        global_delivery_min_cart = parseInt(data.data.DELIVER_FREE_LIMIT);//250;
+        global_max_cache = parseInt(data.data.LIMIT_PAY_CARD);//1000;
+        if(callback){
+            callback();
+        }
+    });
+
+}
 /**
  * [api_config_init функция инициализации API конфигурации. Заполняет переменную api_config]
  * @param  {Function} callback [функция которая выполняется после заполнения api_config]
@@ -157,9 +181,9 @@ function api_config_init(callback) {
 /**
  * [user_init функция инициализации пользователя]
  */
-function user_init() {
+//function user_init() {
     //логирование выполнения функции
-    console.log('user_init()');
+    //console.log('user_init()');
     //получаем токен пользователя с куки
     // var user_token = getCookie('user_token');
 
@@ -237,7 +261,7 @@ function user_init() {
     //             console.log('open_from_url();');
 
 
-                open_from_url();
+                //open_from_url();
 
     //         }
     //     }
@@ -251,127 +275,127 @@ function user_init() {
     // } else {
     //     get_user_info();
     // }
-}
-var global_user_balance = false;
+//}
+// var global_user_balance = false;
 
-function get_user_info(callback_true, callback_false,bg) {
-    //если есть сохраненный юзер токен
+// function get_user_info(callback_true, callback_false,bg) {
+//     //если есть сохраненный юзер токен
 
-    //var user_token = getCookie('user_token');
-    //url для проверки токена
-    var url = api_config.default+'User/info';
+//     //var user_token = getCookie('user_token');
+//     //url для проверки токена
+//     var url = api_config.default+'User/info';
 
-    //отправляемые данные
-    // var data = {
-    //     userKey: user_token
-    // };
-    get_json('get', url, {}, function(data) {
-        //set_user_token(user_token);
-        global_user_data = data.data;
-        global_user_auth = true;
+//     //отправляемые данные
+//     // var data = {
+//     //     userKey: user_token
+//     // };
+//     get_json('get', url, {}, function(data) {
+//         //set_user_token(user_token);
+//         global_user_data = data.data;
+//         global_user_auth = true;
 
-        run_module('menu');
-        run_module('user_tools');
-        global_user_balance = data.data.balance.balance;
-        if (if_defined(callback_true)) {
-            callback_true();
-        }
-        // else{
-
-
-        var cur_pathname = document.location.pathname;
-
-        if (cur_pathname == '/login' || cur_pathname == '/') {
-
-            //открываем дефолтную часть
-            open_part(global_default_open_part);
-
-        } else {
-            //если не логин и есть пазнейм (длинна больше 1)
-            if(!bg && !$('body').attr('data-prew')){
-                open_from_url();    
-            }
-
-        }
-        // }
+//         run_module('menu');
+//         run_module('user_tools');
+//         global_user_balance = data.data.balance.balance;
+//         if (if_defined(callback_true)) {
+//             callback_true();
+//         }
+//         // else{
 
 
-    }, false, function() { //при не удачном выполнеии - сбрасиваем юзер токен(стираем куку)
+//         var cur_pathname = document.location.pathname;
 
-        global_user_auth = false;
-        if (if_defined(callback_false)) {
-            callback_false();
-        } else {
-            open_part('login');
-        }
-        //clear_user_token();
+//         if (cur_pathname == '/login' || cur_pathname == '/') {
 
-    }, false, function() {}, true);
+//             //открываем дефолтную часть
+//             open_part(global_default_open_part);
 
-}
+//         } else {
+//             //если не логин и есть пазнейм (длинна больше 1)
+//             if(!bg && !$('body').attr('data-prew')){
+//                 open_from_url();    
+//             }
 
-/**
- * [logout функция логаута пользователя]
- */
-function logout() {
-    //логируем выполненяе функции
-
-    var url = api_config.default+'Auth/logout';
-
-    get_json('post', url, {}, function(data) {
-        global_user_auth = false;
-        global_user_data = false;
-
-        if (if_defined(window['user_tools']) && if_defined(user_tools.view.t_wrap)) {
-            user_tools.view.t_wrap.hide();
-        }
-        if (if_defined(window['menu']) && if_defined(menu.view.m_wrap)) {
-            menu.view.m_wrap.hide();
-        }
-
-        if (document.location.pathname != '/') {
-            open_part('promo'); //открываем логин
-        } else {
-            open_part('promo', true); //иначе открываем логин с параметром from_url
-        }
-
-    });
+//         }
+//         // }
 
 
-    //clear_user_token();
-}
-var support_chat
-function init_chat_vk() {
-    //if (global_build != false) {
+//     }, false, function() { //при не удачном выполнеии - сбрасиваем юзер токен(стираем куку)
 
-        $.getScript('//vk.com/js/api/openapi.js?151', function() {
+//         global_user_auth = false;
+//         if (if_defined(callback_false)) {
+//             callback_false();
+//         } else {
+//             open_part('login');
+//         }
+//         //clear_user_token();
+
+//     }, false, function() {}, true);
+
+// }
+
+// /**
+//  * [logout функция логаута пользователя]
+//  */
+// function logout() {
+//     //логируем выполненяе функции
+
+//     var url = api_config.default+'Auth/logout';
+
+//     get_json('post', url, {}, function(data) {
+//         global_user_auth = false;
+//         global_user_data = false;
+
+//         if (if_defined(window['user_tools']) && if_defined(user_tools.view.t_wrap)) {
+//             user_tools.view.t_wrap.hide();
+//         }
+//         if (if_defined(window['menu']) && if_defined(menu.view.m_wrap)) {
+//             menu.view.m_wrap.hide();
+//         }
+
+//         if (document.location.pathname != '/') {
+//             open_part('promo'); //открываем логин
+//         } else {
+//             open_part('promo', true); //иначе открываем логин с параметром from_url
+//         }
+
+//     });
+
+
+//     //clear_user_token();
+// }
+// var support_chat
+// function init_chat_vk() {
+//     //if (global_build != false) {
+
+//         $.getScript('//vk.com/js/api/openapi.js?151', function() {
             
-            support_chat = VK.Widgets.CommunityMessages("vk_community_messages", 159023729, {
-                disableExpandChatSound: "1",
-                disableNewMessagesSound: "1",
-                disableButtonTooltip: "1",
-                buttonType: "no_button",
-                expanded:"1"
-            });
+//             support_chat = VK.Widgets.CommunityMessages("vk_community_messages", 159023729, {
+//                 disableExpandChatSound: "1",
+//                 disableNewMessagesSound: "1",
+//                 disableButtonTooltip: "1",
+//                 buttonType: "no_button",
+//                 expanded:"1"
+//             });
 
-        });
-    //}
+//         });
+//     //}
     
     
-}
+// }
 $(document).ready(function() {
     //по загрузке данного скрипта и выполнении реди
     //init_chat_vk();
     //иницируем заполнение api_config
 
-    $('.chat-trig').unbind('click');    
-    $('.chat-trig').click(function(e){
-        e.preventDefault();
-        $(this).closest('.chat-wrap').toggleClass('active');
-    });
+    // $('.chat-trig').unbind('click');    
+    // $('.chat-trig').click(function(e){
+    //     e.preventDefault();
+    //     $(this).closest('.chat-wrap').toggleClass('active');
+    // });
     api_config_init(function() { //c кольбеком
         //иницирование пользователя
-        user_init();
+        open_from_url();
     });
 
 

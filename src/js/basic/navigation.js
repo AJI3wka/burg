@@ -4,10 +4,10 @@
 //логируем включение скрипта
 console.log('navigation start');
 
-var $main_container = $(".app-wrap"); 
+var $main_container = $("#main_cont"); 
 var $modal_container = $(".modal-wrap");
 
-var lbl_title_part = 'DNK | ';
+var lbl_title_part = 'Мясорубка | ';
 var m_lbl_id = $('body').attr('data-lbl');
 if (m_lbl_id=='steps.one') {
     lbl_title_part = 'Steps.one | '
@@ -33,16 +33,24 @@ var page_parts = [{
     module: 'main',
     opened: true    
 }, {
-    part: 'cartpage',
-    url: '/cartpage',
-    alt:[],
+    part: 'cart',
+    url: '/cart',
     name: 'Корзина',
-    type: 'main',
-    wrap: $main_container,
-    source: "/html/main/cartpage.html",
-    module: 'cartpage',
-    opened: true
+    type: 'static',
+    wrap: $('#cart_wrp'),
+    source: "/html/main/cart.html",
+    module: 'cart',
+    opened: true    
 }, {
+    part: 'checkout',
+    url: '/checkout',
+    name: 'Оформлення замовлення',
+    type: 'static',
+    wrap: $('#checkout_wrp'),
+    source: "/html/main/checkout.html",
+    module: 'checkout',
+    opened: true    
+},{
     part: 'category',
     url: '/burgers',
     name: 'Бургери',
@@ -59,7 +67,7 @@ var page_parts = [{
         name: 'Соуси'
     }],
     source: "/html/main/list.html",
-    module: 'tovar_list',
+    module: 'lot_list',
     opened: true
 },{
     part: '404',
@@ -71,6 +79,29 @@ var page_parts = [{
     module: null,
     opened: true
 },{
+    part: 'delivery',
+    url: '/delivery_and_pay',
+    alt:[],
+    name: 'Доставка та оплата',
+    type: 'main',
+    wrap: $main_container,
+    source: "/html/main/delivery.html",
+    module: 'delivery',
+    opened: true
+},{
+    part: 'card',
+    url: '/burgers/card',
+    alt:[{
+        url:'/salads/card',
+        name: 'Салати'
+    }],
+    name: 'Бургери',
+    type: 'main',
+    wrap: $main_container,
+    source: "/html/main/card.html",
+    module: 'card',
+    opened: true
+},{
     part: '508',
     url: '',
     name: 'Бесконечное перенаправление',
@@ -79,7 +110,17 @@ var page_parts = [{
     source: "/html/parts/508.html",
     module: null,
     opened: true
+},{
+    part: 'thanks',
+    url: '/thanks',
+    name: 'Дякуємо за замовлення',
+    type: 'main',
+    wrap: $main_container,
+    source: "/html/main/thanks.html",
+    module: 'thanks',
+    opened: true
 }];
+
 
 /**
  * [global_current_open_part description]
@@ -141,23 +182,9 @@ function open_part(name, from_url, force_learning) {
                         $body.attr('data-prew', global_default_path);
                     }
                 } else {
-                    if (global_current_path.indexOf('/edit')>-1 && !$body.attr('data-editor')) {
-
-                        $body.attr('data-editor', global_current_path);//иначе ставим текущую открытую чась
-                    }
-                    if (global_current_path.indexOf('/edit')>-1 ||
-                        global_current_path == '/how_to' ||
-                        global_current_path.indexOf('/lp1')>-1 ||
-                        global_current_path.indexOf('/lp3')>-1 ||
-                        global_current_path.indexOf('/preland')>-1 ||
-                        global_current_path.indexOf('/quiz')>-1
-                        ){
-                        $body.attr('data-prew', global_current_path);//иначе с
-                        
-                    }else{
+                    
                         $body.attr('data-prew', global_default_path);//иначе ставим текущую открытую чась
 
-                    }
                 }
 
             }else{
@@ -215,6 +242,38 @@ function open_part(name, from_url, force_learning) {
 
     function show_and_run(){
 
+
+            // var $c = $('#cart_wrp').closest('.cart-wrap'); 
+
+            // if(part_obj.type == 'static'){
+
+            //     if($c.hasClass('opened')){
+
+            //     }else{
+            //         $c.animate({
+            //             bottom: 0},
+            //             250, function() {
+            //             $c.addClass('opened');
+            //             $('body').addClass('cart_opened');
+            //         });
+                    
+            //     }   
+ 
+            // }else{
+
+
+            //     if($c.hasClass('opened')){
+
+            //         $c.animate({
+            //             bottom: '100%'},
+            //             250, function() {
+            //             $c.removeClass('opened');
+            //             $('body').removeClass('cart_opened');
+            //         });
+            //     }else{
+                    
+            //     }    
+            // }
 
             dnk_atom_events({type:'page'});
 
@@ -283,7 +342,7 @@ function open_part(name, from_url, force_learning) {
         
 
 
-        if (part_obj.type == 'main') {
+        if (part_obj.type == 'main'||part_obj.type == 'static') {
             $('body').attr('data-loaded',part_obj.part);
         }
 
@@ -293,11 +352,28 @@ function open_part(name, from_url, force_learning) {
 
         }else{
 
-            part_obj.wrap.attr('data-loaded',part_obj.part).load(needed_src, function() {//по загрузке каркаса
+             
+            if(part_obj.type == 'static'){
+                part_obj.wrap.attr('data-loaded',part_obj.part)
+                if(part_obj.wrap.children().length==0){
+                    part_obj.wrap.load(needed_src, function() {//по загрузке каркаса
 
-                show_and_run();
+                        
+                        show_and_run();
 
-            });
+                    });
+                }else{
+                    show_and_run();
+                }
+
+            }else{
+
+                part_obj.wrap.attr('data-loaded',part_obj.part).load(needed_src, function() {//по загрузке каркаса
+
+                    show_and_run();
+
+                });
+            }
         }
 
     }
