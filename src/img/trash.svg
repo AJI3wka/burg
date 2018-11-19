@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>ECD80F7D-2C20-4182-87B7-F13F4A0BB9F6</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbol" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sign/Trash" fill="#151515">
+            <g transform="translate(4.000000, 4.000000)">
+                <rect id="Rectangle" x="5" y="7" width="1" height="6"></rect>
+                <rect id="Rectangle" x="7" y="7" width="1" height="6"></rect>
+                <rect id="Rectangle" x="9" y="7" width="1" height="6"></rect>
+                <path d="M1,2 L14,2 C14.5522847,2 15,2.44771525 15,3 L15,4 C15,4.55228475 14.5522847,5 14,5 L1,5 C0.44771525,5 6.76353751e-17,4.55228475 0,4 L0,3 C-6.76353751e-17,2.44771525 0.44771525,2 1,2 Z M1,3 L1,4 L14,4 L14,3 L1,3 Z" id="Combined-Shape"></path>
+                <path d="M6,0 L9,0 C10.1045695,-2.02906125e-16 11,0.8954305 11,2 L11,3 L4,3 L4,2 C4,0.8954305 4.8954305,2.02906125e-16 6,0 Z M6,1 C5.44771525,1 5,1.44771525 5,2 L10,2 C10,1.44771525 9.55228475,1 9,1 L6,1 Z" id="Combined-Shape"></path>
+                <path d="M3,4 L12,4 C12.5522847,4 13,4.44771525 13,5 L13,14 C13,15.1045695 12.1045695,16 11,16 L4,16 C2.8954305,16 2,15.1045695 2,14 L2,5 C2,4.44771525 2.44771525,4 3,4 Z M3,5 L3,14 C3,14.5522847 3.44771525,15 4,15 L11,15 C11.5522847,15 12,14.5522847 12,14 L12,5 L3,5 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

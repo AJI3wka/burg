@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>B1F43250-11C0-4A5A-BB19-6F23551B23DA</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbol" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Burger" stroke-width="2">
+            <path d="M7,28 L7,32 C7,33.6568542 8.34314575,35 10,35 L30,35 C31.6568542,35 33,33.6568542 33,32 L33,28 L7,28 Z" id="Rectangle" stroke="#151515"></path>
+            <rect id="Rectangle" stroke="#000000" transform="translate(20.000000, 22.000000) scale(1, -1) translate(-20.000000, -22.000000) " x="7" y="20" width="26" height="4"></rect>
+            <path d="M6,28 L34,28 C35.1045695,28 36,27.1045695 36,26 C36,24.8954305 35.1045695,24 34,24 L6,24 C4.8954305,24 4,24.8954305 4,26 C4,27.1045695 4.8954305,28 6,28 Z" id="Rectangle" stroke="#151515"></path>
+            <path d="M6,20 L34,20 C35.1045695,20 36,19.1045695 36,18 C36,16.8954305 35.1045695,16 34,16 L6,16 C4.8954305,16 4,16.8954305 4,18 C4,19.1045695 4.8954305,20 6,20 Z" id="Rectangle" stroke="#151515"></path>
+            <path d="M8.65,16 L31.35,16 C32.2612685,16 32.9999977,15.2612709 32.9999977,14.3500023 C32.9999977,14.3500016 32.9999977,14.3500008 32.9999977,14.35 L32.9999965,13.8177246 C32.9999954,13.0805093 32.7285444,12.3691046 32.2374479,11.8192768 C28.1768754,7.27309228 24.0977254,5 19.9999977,5 C15.9022661,5 11.8231162,7.27309174 7.76254811,11.8192752 L7.76254793,11.8192751 C7.2714508,12.369104 7,13.0805101 7,13.8177266 L7,14.35 C7,15.2612698 7.73873016,16 8.65,16 Z" id="Path" stroke="#151515"></path>
+        </g>
+    </g>
+</svg>
