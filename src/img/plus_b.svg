@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="2" version="1.1"><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" version="1.1" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
     <!-- Generator: sketchtool 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
-    <title>B4EF957B-AADE-4D8B-B410-5DCFFB68BEE0</title>
+    <title>047CBD2E-2B40-4187-9393-D60BACA76A63</title>
     <desc>Created with sketchtool.</desc>
     <defs/>
     
 <g class="currentLayer" style=""><title>Layer 1</title><g id="Symbol" stroke="none" stroke-width="1" fill="#000000" fill-rule="evenodd" class="selected" fill-opacity="1">
         <g id="Buttons/Add-to-Basket/M/With-Amount-Buttons" fill="#000000" fill-opacity="1">
             <g id="Button-Amount-Change-Big" fill="#000000" fill-opacity="1">
-                <g id="Button-Minus/Big/UnPress" fill="#000000" fill-opacity="1">
-                    <rect id="Minus" x="0" y="0" width="16" height="2" rx="1" fill="#000000" fill-opacity="1"/>
+                <g id="Button-Plus/Big/UnPress" fill="#000000" fill-opacity="1">
+                    <path d="M7,7 L7,1 C7,0.4477152999999989 7.447715299999999,0 8,0 C8.552284700000001,0 9,0.4477152999999989 9,1 L9,7 L15,7 C15.552284700000001,7 16,7.447715299999999 16,8 C16,8.552284700000001 15.552284700000001,9 15,9 L9,9 L9,15 C9,15.552284700000001 8.552284700000001,16 8,16 C7.447715299999999,16 7,15.552284700000001 7,15 L7,9 L1,9 C0.4477152999999987,9 0,8.552284700000001 0,8 C0,7.447715299999999 0.4477152999999987,7 1,7 L7,7 z" id="Plus" fill="#000000" fill-opacity="1"/>
                 </g>
             </g>
         </g>

@@ -25,7 +25,11 @@ basket_events.events = {
 			var id = $(this).closest('.item').attr('data-id');
 			var category = document.location.pathname.replace('/card','').replace('/','');
 			
-			basket_events.model.remove_item(category,id);
+
+			if (parseInt($(this).parent().find('.howmuch').html())>1) {
+
+				basket_events.model.remove_item(category,id);
+			}			
 		});
 	},
 	rebind_card_souses:function(){
@@ -47,7 +51,11 @@ basket_events.events = {
 			var id = $(this).closest('.item').attr('data-id');
 			var category = 'souses';
 			
-			basket_events.model.remove_item(category,id);
+
+			if (parseInt($(this).parent().find('span').html())>1) {
+
+				basket_events.model.remove_item(category,id);
+			}			
 		});
 
 
@@ -71,7 +79,11 @@ basket_events.events = {
 			var id = $(this).closest('.item').attr('data-id');
 			var category = 'drinks';
 			
-			basket_events.model.remove_item(category,id);
+
+			if (parseInt($(this).parent().find('span').html())>1) {
+
+				basket_events.model.remove_item(category,id);
+			}			
 		});
 	},
 	rebind_list:function(){
@@ -92,8 +104,11 @@ basket_events.events = {
 		basket_events.view.wrap.find('.burgs').find('.item-wrap').find('.minus').unbind('click').click(function(){
 			var id = $(this).closest('.item').attr('data-id');
 			var category = document.location.pathname.replace('/','');
-			
-			basket_events.model.remove_item(category,id);
+
+			if (parseInt($(this).parent().find('.howmuch').html())>1) {
+
+				basket_events.model.remove_item(category,id);
+			}			
 		});
 
 
@@ -110,8 +125,12 @@ basket_events.events = {
 			var $p = $(this).closest('.pos_basket');
 			var id = $p.attr('data-id');
 			var category = $p.attr('data-category');
+
+			if (parseInt($(this).parent().find('.howmuch').html())>1) {
+
+				basket_events.model.remove_item(category,id);
+			}
 			
-			basket_events.model.remove_item(category,id);
 		});
 		basket_events.view.wrap.find('.list').find('.close').unbind('click').click(function(){
 			var $p = $(this).closest('.pos_basket');
@@ -135,7 +154,10 @@ basket_events.events = {
 			var id = $p.attr('data-id');
 			var category = $p.attr('data-category');
 			
-			basket_events.model.remove_item(category,id);
+			if (parseInt($(this).parent().find('.howmuch').html())>1) {
+
+				basket_events.model.remove_item(category,id);
+			}
 		});
 		basket_events.view.wrap.find('.list').find('.close').unbind('click').click(function(){
 			var $p = $(this).closest('.pos');

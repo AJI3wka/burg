@@ -179,7 +179,7 @@ section {
 .app-wrap .cart-wrap {
   position: fixed;
   left: 0;
-  bottom: 100%;
+  top: 100%;
   width: 200%;
   height: 100vh;
   z-index: 4;
@@ -305,7 +305,7 @@ header {
           background-image: url(../img/salad.svg); }
         header .ibw .menu .list a.pos5 {
           background-image: url(../img/information.svg); }
-      header .ibw .menu:hover .list {
+      header .ibw .menu:hover .list, header .ibw .menu.opened .list {
         display: block; }
     header .ibw .phone {
       font-family: MuseoSansCyrl;
@@ -774,7 +774,7 @@ header {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       transition: all 0.2s; }
       .sec1 .empty button.more:hover {
-        box-shadow: 0 0 0 0 transparent; }
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
   .sec1 .l_main {
     width: 560px;
     height: 656px;
@@ -1296,14 +1296,14 @@ header {
         position: absolute;
         width: 24px;
         height: 24px;
-        background-image: url(../img/grey.svg);
+        background-image: url(../img);
         background-position: center;
         right: 4px;
         top: 4px; }
       .sec1 .myorder .pos .l_z {
         float: left;
         height: 100%;
-        width: 368px; }
+        width: 366px; }
         .sec1 .myorder .pos .l_z .img_wrap {
           float: left;
           width: 96px;
@@ -1320,13 +1320,17 @@ header {
             transform: translate3d(-50%, -50%, 0); }
         .sec1 .myorder .pos .l_z .n_info {
           float: left;
-          width: 267px;
-          padding: 24px 12px 0px; }
+          width: 264px;
+          padding: 4px 12px 0px; }
           .sec1 .myorder .pos .l_z .n_info p.h5 {
             font-size: 18px;
+            line-height: 66px;
             font-weight: 900;
-            letter-spacing: 0.5px;
-            padding-bottom: 9px; }
+            letter-spacing: 0.5px; }
+            .sec1 .myorder .pos .l_z .n_info p.h5 span {
+              display: inline-block;
+              vertical-align: middle;
+              line-height: 24px; }
           .sec1 .myorder .pos .l_z .n_info .netto {
             font-size: 18px;
             vertical-align: top;
@@ -2868,7 +2872,7 @@ body {
       margin-top: 15px; }
     header .ibw .worktime {
       margin-left: 30px;
-      width: 180px;
+      width: 160px;
       text-align: center;
       padding-top: 0;
       margin-top: 4px; }
@@ -3076,10 +3080,8 @@ body {
       width: 224px; }
       .sec1 .infm p.h3:nth-of-type(4n) {
         padding-bottom: 2px; }
-      .sec1 .infm input {
-        margin-bottom: 23px; }
-        .sec1 .infm input:nth-of-type(3n) {
-          background-position: 162px 0px; }
+      .sec1 .infm input:nth-of-type(3n) {
+        background-position: 162px 0px; }
       .sec1 .infm .adr .pdrb {
         margin-right: 13px; }
         .sec1 .infm .adr .pdrb input.min {
@@ -3139,9 +3141,9 @@ body {
         .sec1 .myorder .pos .l_z {
           float: left;
           height: 100%;
-          width: 248px; }
+          width: 244px; }
           .sec1 .myorder .pos .l_z .n_info {
-            width: 148px; }
+            width: 144px; }
         .sec1 .myorder .pos .r_z {
           width: 120px; }
       .sec1 .myorder .itogo {
@@ -3841,10 +3843,8 @@ body {
       margin-left: 0px;
       margin-right: 0px;
       width: 320px; }
-      .sec1 .infm input {
-        margin-bottom: 22px; }
-        .sec1 .infm input:nth-of-type(3n) {
-          background-position: 256px 0px; }
+      .sec1 .infm input:nth-of-type(3n) {
+        background-position: 256px 0px; }
     .sec1 .adr .pdrb {
       margin-right: 11px !important; }
       .sec1 .adr .pdrb:last-of-type {

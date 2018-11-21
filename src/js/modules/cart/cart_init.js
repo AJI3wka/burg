@@ -16,7 +16,7 @@ cart.init = function() {
 
     }else{
     	$c.animate({
-    		bottom: 0},
+    		top: 0},
     		250, function() {
     		$c.addClass('opened');
     	});

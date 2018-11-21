@@ -21,6 +21,13 @@ checkout.view = {
 							var lot_price = ls.model.to_pay[key][i].price*ls.model.to_pay[key][i].count;
 							summ+=lot_price;
 
+							var name = 'Бургер ';
+							if(key == 'souses'){
+								name = 'Соус '
+							}else if(key == 'drinks'){
+								name = 'Напій '
+
+							}
 							list_html+='<div class="pos" data-category="'+key+'" data-id="'+ls.model.to_pay[key][i].id+'">';
 							list_html+='<div class="close"></div>';
 							list_html+='<div class="l_z">';
@@ -28,7 +35,7 @@ checkout.view = {
 							list_html+='<img src="'+ls.model.to_pay[key][i].img+'" alt="">';
 							list_html+='</div>';
 							list_html+='<div class="n_info">';
-							list_html+='<p class="h5">'+ls.model.to_pay[key][i].name+'</p>';
+							list_html+='<p class="h5"><span>'+name+ls.model.to_pay[key][i].name+'</span></p>';
 							list_html+='<div class="netto">'+ls.model.to_pay[key][i].weight;
 							if (key !='drinks') {
 

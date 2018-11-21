@@ -37,7 +37,7 @@ ls.model = {
 		    	$('html,body').scrollTop(0);
 		    	$b.removeClass('cart_opened');
 		    	$c.animate({
-		    		bottom: '100%'},
+		    		top: '100%'},
 		    		250, function() {
 		    		$c.removeClass('opened');
 		    	});
@@ -85,7 +85,7 @@ ls.model = {
 		    	$c.css('left','-100%');
 
 		    	$c.animate({
-		    		bottom: 0},
+		    		top: 0},
 		    		250, function() {
 
 		    		$('html,body').scrollTop(0);
@@ -126,7 +126,7 @@ ls.model = {
 
 		    	$c.css('left','0%');
 		    	$c.animate({
-		    		bottom: 0},
+		    		top: 0},
 		    		250, function() {
 		    		$('html,body').scrollTop(0);
 		    		$c.addClass('opened');
