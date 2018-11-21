@@ -23,7 +23,7 @@ checkout.events = {
                 this.style.height = this.scrollHeight + 'px';
             }
         });;
-        $w.find('input[name="phone"]').mask('+380 99 999 99 99');
+        $w.find('input[name="phone"]').mask('+38 999 999 99 99');
         $w.find('input[name="phone"]').unbind('focus blur').focus(function() {
             $(this).trigger('keydown keyup keypress');
             $(this).closest('.inp-wrap').removeClass('error-input');
