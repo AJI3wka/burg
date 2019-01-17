@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+:after,
+:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  clear: both; }
+
+sup:after,
+sup:before,
+a:after,
+a:before,
+br:after,
+br:before,
+img:after,
+img:before,
+span:after,
+span:before,
+table:after,
+table:before,
+td:after,
+td:before,
+tr:after,
+tr:before {
+  content: none; }
+
+button {
+  border: none; }
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #bcbcbc; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #bcbcbc; }
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #bcbcbc; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #bcbcbc; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: 1em;
+  font-weight: inherit;
+  text-align: center;
+  font-family: "MuseoSansCyrl";
+  font-weight: 400;
+  letter-spacing: 0.01em; }
+
+body {
+  font-family: "MuseoSansCyrl", sans-serif;
+  font-weight: 400;
+  color: #141414; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: 0 !important; }
+
+button,
+input,
+textarea {
+  outline: none;
+  border: none;
+  border-radius: 0; }
+  button:focus,
+  input:focus,
+  textarea:focus {
+    border-color: #f5a623 !important; }
+
+input {
+  font-size: 18px;
+  font-family: "MuseoSansCyrl", sans-serif;
+  font-weight: 500;
+  border-radius: 0; }
+.under-const {
+  position: absolute;
+  width: 100%;
+  width: 600px;
+  height: 200px;
+  margin: 0 auto;
+  top: 44%;
+  left: 50%;
+  margin-left: -300px;
+  margin-top: -100px; }
+  .under-const.m {
+    height: 400px;
+    margin-top: -200px; }
+  .under-const .b-logo {
+    background: url(/template/burger/img/logo_f.png);
+    width: 100%;
+    height: 124px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .under-const .t {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 300;
+    margin-top: 20px; }
+    .under-const .t.m {
+      margin-bottom: 40px;
+      margin-top: 40px;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: left; }
+      .under-const .t.m span {
+        float: left;
+        font-weight: 100;
+        font-size: 120px;
+        line-height: 90px;
+        margin-right: 20px; }
+  .under-const .b {
+    width: 297px;
+    height: 56px;
+    border-radius: 27px;
+    display: block;
+    line-height: 54px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #151515;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.2s; }
+
+
+@media screen and (max-width: 767px) {
+  .under-const, .initing .middle {
+    position: static;
+    margin: 0 !important;
+    padding: 60px 20px;
+    width: 100%;
+    height: initial !important; }
+    .under-const .t, .initing .middle .t {
+      font-size: 24px; }
+      .under-const .t.m, .initing .middle .t.m {
+        max-width: 420px;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 24px; }
+        .under-const .t.m span, .initing .middle .t.m span {
+          display: block;
+          float: none;
+          text-align: center;
+          margin-bottom: 20px; }
+}
+.initing {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background: #e9e9e9; }
+  .initing .middle {
+    position: absolute;
+    width: 100%;
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    top: 44%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -150px;
+    padding: 0 20px; }
+    .initing .middle .b-logo {
+      background: url(img/logo_f.png);
+      width: 100%;
+      height: 124px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center; }
+    .initing .middle .spinner {
+      animation: rotator 1.4s linear infinite;
+      display: block;
+      margin: 70px auto 0; }
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(270deg); } }
+  .initing .path {
+    stroke-dasharray: 187;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    stroke: #131313;
+    animation: dash 1.4s ease-in-out infinite; }
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg); }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg); } }

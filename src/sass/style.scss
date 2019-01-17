@@ -142,6 +142,78 @@ section {
 .ibw {
     @include ibw;
 }
+
+
+.initing{
+
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background: #e9e9e9;
+// Here is where the magic happens
+
+$offset: 187;
+$duration: 1.4s;
+
+.middle{
+    position: absolute;
+    width: 100%;
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    top: 44%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -150px;
+    padding: 0 20px; 
+    .b-logo{
+        background:url(../img/logo_f.png);
+        width: 100%;
+        height: 124px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .spinner {
+      animation: rotator $duration linear infinite;
+      display: block;
+      margin:70px auto 0;
+
+    }
+}
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+.path {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  stroke: #131313; 
+  animation:
+    dash $duration ease-in-out infinite
+}
+
+
+@keyframes dash {
+ 0% { stroke-dashoffset: $offset; }
+ 50% {
+   stroke-dashoffset: $offset/4;
+   transform:rotate(135deg);
+ }
+ 100% {
+   stroke-dashoffset: $offset;
+   transform:rotate(450deg);
+ }
+}
+}
+
 .under-const{
     position: absolute;
     width: 100%;
@@ -158,7 +230,7 @@ section {
         margin-top: -200px;
     }
     .b-logo{
-        background:url(../img/big_logo.png);
+        background:url(../img/logo_f.png);
         width: 100%;
         height: 124px;
         background-size: contain;
@@ -633,24 +705,24 @@ header {
             text-align: left;
             vertical-align: top;
 
-            p.dstv {
-                font-size: 18px;
-                font-weight: 900;
-                letter-spacing: 1.5px;
-                color: #151515;
-                padding-left: 8px;
-                padding-top: 3px;
-            }
+            p{
 
-            p.oplt {
-                font-size: 24px;
                 font-weight: 900;
                 letter-spacing: 1.5px;
-                text-align: left;
-                color: #f5a623;
                 padding-left: 8px;
-                position: relative;
-                top: -2px;
+                &.dstv {
+                    font-size: 18px;
+                    color: #151515;
+                    padding-top: 3px;
+                }
+
+                &.oplt {
+                    font-size: 24px;
+                    text-align: left;
+                    color: #f5a623;
+                    position: relative;
+                    top: -2px;
+                }
             }
         }
     }
@@ -1390,6 +1462,9 @@ header {
                         bottom: 0;
                         right: 0;
                 }
+                input{
+                    padding-right: 64px; 
+                }
             }
             &.house{
                 &.error-input{
@@ -1530,7 +1605,7 @@ header {
                     background: #151515;
                     border-radius: 100%;
                     position: absolute;
-                    top: 27px;
+                    top: 27px; 
                     left: 19px;
                     cursor: pointer;
                 }
@@ -1583,7 +1658,7 @@ header {
                 border: solid 1px #151515;
                 position: relative;
                 vertical-align: top;
-                line-height: 60px;
+                line-height: 62px;
                 background-position: 38px 28px;
 
                 p.pay_t {
@@ -1593,7 +1668,7 @@ header {
                     text-align: left;
                     line-height: 1.25;
                     display: inline-block;
-                    padding-left: 52px;
+                    padding-left: 48px;
                     vertical-align: middle;
                     &:after{
                         background-image: url(../img/color.svg);
@@ -5957,7 +6032,7 @@ body{
 
 
                     &:after {
-                        top: 28px;
+                        top: 27px;
                         left: 24px;
                     }
                 }
@@ -5968,7 +6043,7 @@ body{
                     p.pay_t {}
 
                     &:before {
-                        top: 24px;
+                        top: 23px;
                         left: 20px;
                     }
                 }
@@ -5979,7 +6054,7 @@ body{
                     p.pay_t {}
 
                     &:before {
-                        top: 24px;
+                        top: 23px;
                         left: 20px;
                     }
                 }
@@ -6994,7 +7069,7 @@ body{
             .korzina {
                 font-size: 0;
                 margin-top: 0;
-                margin-right: 30px;
+                margin-right: 10px;
             }
         }
 
@@ -7469,6 +7544,9 @@ body{
 
                     p.pay_t {
                         padding-left: 48px;
+                        &:after{
+                            margin-left: 6px;
+                        }
                     }
 
                     &:before {
@@ -7720,7 +7798,7 @@ body{
 }
 
 @media screen and (max-width: 767px) {
-    .under-const{
+    .under-const,.initing .middle{
         position: static;
         margin: 0!important;
         padding: 60px 20px;
@@ -8276,6 +8354,7 @@ body{
                 .gotivka {
                     width: 49.5%;
                     height: 64px;
+                    line-height: 62px;
 
                     p.pay_t {
                         padding-left: 77px;
@@ -8295,9 +8374,13 @@ body{
                     background-position: 76px 28px;
                     width: 49%;
                     height: 64px;
+                    line-height: 62px;
 
                     p.pay_t {
                         padding-left: 77px;
+                        &:after{
+                            margin-left: 0;
+                        }
                     }
 
                     &:before {
@@ -9097,6 +9180,9 @@ body{
                 width: 100% !important;
 
                 p.pay_t {
+                    &:after{
+                        margin-left: 6px !important;
+                    }
                 }
 
                 &:before {
@@ -9342,8 +9428,21 @@ body{
     right: 0;
     bottom: 0;
     background: #000;
-    opacity: 0.5;
-    z-index: 999;
+    opacity: 0.5; 
+    z-index: 19;
+    p{
+        position: absolute;
+        width: 300px;
+        top: 50%;
+        left: 50%;
+        margin-left: -150px;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        font-weight: 300;
+        margin-top:70px;
+
+    }
     div{
         background-image: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IC0yNTUgMzQ3IDEwMCAxMDAiIHZpZXdCb3g9Ii0yNTUgMzQ3IDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iI2ZmZiI+PHBhdGggZD0ibS0xNzkuOSA0MTEuNXMuMS0uMi40LS41Yy4zLS40LjUtLjcuOC0xLjQuNy0xLjIgMS42LTMgMi40LTUuMy40LTEuMS43LTIuNCAxLTMuOHMuNS0yLjkuNS00LjRjMC0uOC4xLTEuOCAwLTIuNSAwLS44IDAtMS41LS4yLTIuNC0uMS0uOC0uMi0xLjYtLjQtMi41LS4yLS44LS4zLTEuNi0uNi0yLjVsLS4zLTEuMmMtLjEtLjQtLjMtLjgtLjQtMS4ybC0uNC0xLjItLjUtMS4xYy0uMy0uOC0uNy0xLjUtMS4xLTIuMnMtLjgtMS40LTEuMy0yLjFjLS40LS43LS45LTEuMy0xLjQtMS45cy0xLTEuMi0xLjUtMS44LTEtMS4xLTEuNS0xLjZjLS4zLS4yLS41LS41LS44LS43cy0uNS0uNC0uOC0uNmMtMS0uOS0yLTEuNi0yLjktMi4ycy0xLjctMS4xLTIuNC0xLjVjLTEuNC0uNy0yLjItMS4xLTIuMi0xLjFzLjkuMyAyLjMuOGMuNy4zIDEuNi43IDIuNiAxLjEgMSAuNSAyLjEgMS4xIDMuMyAxLjhsLjkuNi45LjZjLjYuNCAxLjIuOSAxLjggMS40czEuMiAxIDEuOCAxLjYgMS4yIDEuMiAxLjggMS44Yy42LjcgMS4yIDEuMyAxLjcgMi4xLjUuNyAxLjEgMS41IDEuNiAyLjJsLjggMS4yLjcgMS4yYy4yLjQuNS44LjcgMS4zbC42IDEuM2MuNC45LjcgMS44IDEgMi43cy42IDEuOC44IDIuN2MuMy45LjQgMS45LjYgMi44LjIgMSAuMiAxLjguMyAyLjYuMiAxLjkuMiAzLjYuMSA1LjNzLS4zIDMuMy0uNiA0LjdjLS42IDIuOS0xLjQgNS4zLTIuMSA2LjktLjMuOC0uNyAxLjUtLjggMS45LS4yLjQtLjMuNi0uMy42LS45IDItMy4zIDIuOS01LjMgMS45LTItLjktMi45LTMuMy0xLjktNS4zLjEuMy4yLjEuMy0uMXoiLz48cGF0aCBkPSJtLTIwNC45IDM2OHMtLjIgMC0uNiAwYy0uNSAwLS45IDAtMS42LS4xLTEuNCAwLTMuNC4xLTUuOC41LTEuMi4yLTIuNS42LTMuOCAxcy0yLjcgMS00IDEuN2MtLjcuNC0xLjYuOC0yLjEgMS4yLS42LjQtMS4zLjgtMiAxLjNzLTEuMyAxLTEuOSAxLjUtMS4zIDEuMS0xLjggMS43bC0uOS45Yy0uMy4zLS41LjYtLjggMWwtLjggMS0uNyAxYy0uNS43LS45IDEuNC0xLjQgMi4xcy0uOCAxLjQtMS4yIDIuMmMtLjQuNy0uNyAxLjUtMSAyLjJzLS41IDEuNS0uOCAyLjItLjQgMS40LS42IDIuMWMtLjEuMy0uMi43LS4zIDFzLS4xLjctLjIgMWMtLjMgMS4zLS4zIDIuNS0uNCAzLjZzLS4xIDItLjEgMi44Yy4xIDEuNi4xIDIuNS4xIDIuNXMtLjEtLjgtLjQtMi40Yy0uMS0uOC0uMi0xLjctLjMtMi44cy0uMS0yLjQtLjEtMy43YzAtLjMgMC0uNyAwLTEuMXMuMS0uNy4xLTEuMWMuMS0uNy4xLTEuNS4zLTIuMy4xLS44LjMtMS42LjUtMi40cy40LTEuNi43LTIuNWMuMy0uOC41LTEuNy45LTIuNS4zLS44LjctMS43IDEuMi0yLjVsLjYtMS4yLjctMS4yYy4zLS40LjUtLjguOC0xLjJsLjgtMS4yYy41LS44IDEuMi0xLjUgMS44LTIuMnMxLjMtMS40IDItMi4xYy42LS43IDEuNC0xLjMgMi4yLTEuOS44LS43IDEuNC0xLjEgMi4xLTEuNiAxLjUtMS4xIDMtMiA0LjUtMi43IDEuNS0uOCAzLTEuNCA0LjQtMS45IDIuOC0xIDUuMy0xLjQgNy0xLjcuOS0uMSAxLjctLjIgMi0uMi40IDAgLjYtLjEuNi0uMSAyLjItLjIgNC4xIDEuNCA0LjMgMy43cy0xLjQgNC4xLTMuNyA0LjNjMCAuMS0uMi4xLS4zLjF6Ii8+PHBhdGggZD0ibS0yMzAuMiA0MTEuM3MuNC44IDEuMiAyLjJjLjQuOC44IDEuNCAxLjMgMi4xLjMuNC41LjguOSAxLjJzLjcuOSAxLjEgMS4zYy4yLjIuNC41LjYuN3MuNS40LjcuN2MuNS41LjkuOSAxLjUgMS40IDEuMS45IDIuMiAxLjkgMy42IDIuNi4zLjIuNy40IDEgLjZzLjcuNCAxLjEuNmMuNy4zIDEuNC44IDIuMiAxLjFzMS41LjYgMi4zLjljLjguMiAxLjYuNSAyLjQuNyAxLjYuNCAzLjMuNyA1IC44LjQgMCAuOC4xIDEuMy4xaDEuMmMuOCAwIDEuNy4xIDIuNS0uMS44LS4xIDEuNi0uMiAyLjQtLjIuOC0uMSAxLjUtLjMgMi4zLS40LjQtLjEuNy0uMSAxLjEtLjIuMy0uMS43LS4yIDEtLjMuNy0uMiAxLjMtLjQgMi0uNiAxLjItLjUgMi4zLTEgMy4zLTEuNCAxLS41IDEuOC0xIDIuNS0xLjQgMS4zLS44IDIuMS0xLjQgMi4xLTEuNHMtLjkuNy0yLjEgMS43Yy0uNi41LTEuNCAxLjEtMi4zIDEuN3MtMiAxLjItMy4yIDEuOWMtLjYuMy0xLjMuNi0xLjkuOS0uMy4yLS43LjMtMSAuNS0uNC4yLS43LjMtMS4xLjQtLjcuMy0xLjUuNS0yLjMuOC0uOC4yLTEuNy40LTIuNS42cy0xLjcuMy0yLjYuNGMtLjUuMS0uOS4xLTEuNC4yLS41IDAtLjkgMC0xLjQuMS0xLjkuMS0zLjggMC01LjctLjEtMS0uMS0xLjktLjItMi45LS40LS45LS4yLTEuOS0uNS0yLjgtLjdzLTEuOC0uNi0yLjctLjljLS40LS4yLS45LS4zLTEuMy0uNXMtLjgtLjQtMS4yLS42Yy0xLjctLjctMy4yLTEuNy00LjYtMi41LS43LS41LTEuNC0xLTItMS40LS4zLS4yLS42LS41LTEtLjctLjMtLjMtLjYtLjUtLjktLjgtLjYtLjUtMS4xLTEtMS42LTEuNHMtLjktMS0xLjQtMS41Yy0uOS0uOS0xLjYtMS44LTItMi40LS45LTEuMy0xLjUtMi0xLjUtMi0xLjMtMS44LTEtNC4zLjgtNS42czQuMy0xIDUuNi44Yy4yLjIuMy40LjQuNXoiLz48L2c+PC9zdmc+);width:150px;height:150px;left:50%;top:50%;margin-top:-75px;margin-left:-75px;position:absolute;-webkit-background-size:cover;background-size:cover;background-position:center;-webkit-animation:spin .8s infinite linear;animation:spin .8s infinite linear;
     }

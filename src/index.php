@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <!-- livereload с grunt, не удалять. Автоматически удаляется при упаковке -->
-        <script src="http://localhost:2201/livereload.js"></script>
+        <script src="http://localhost:3144/livereload.js"></script>
         
         <!-- блок метаданных -->
         <meta charset="UTF-8">
@@ -37,7 +37,15 @@
     </head>
     <body data-revision="000" data-lbl="">
         <!-- на body есть атрибут data-revision который используется в test/dist-->
-
+        <div class="initing">
+            <div class="middle">
+                
+                <div class="b-logo"></div>
+                <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                   <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                </svg>
+            </div>
+        </div>
         <div id="loading_wrap">
 
         </div>

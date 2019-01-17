@@ -14,101 +14,8 @@ var map = {
 
 map.model = {
 	map:false,
-    create_map: function() {
-
-
-        // Polygon getBounds extension - google-maps-extensions
-        // https://github.com/tparkin/Google-Maps-Point-in-Polygon
-        // http://code.google.com/p/google-maps-extensions/source/browse/google.maps.Polygon.getBounds.js
-        if (!google.maps.Polygon.prototype.getBounds) {
-            google.maps.Polygon.prototype.getBounds = function(latLng) {
-                var bounds = new google.maps.LatLngBounds(),
-                    paths = this.getPaths(),
-                    path,
-                    p, i;
-
-                for (p = 0; p < paths.getLength(); p++) {
-                    path = paths.getAt(p);
-                    for (i = 0; i < path.getLength(); i++) {
-                        bounds.extend(path.getAt(i));
-                    }
-                }
-
-                return bounds;
-            };
-        }
-
-        // Polygon containsLatLng - method to determine if a latLng is within a polygon
-        google.maps.Polygon.prototype.containsLatLng = function(latLng) {
-            // Exclude points outside of bounds as there is no way they are in the poly
-
-            var inPoly = false,
-                bounds, lat, lng,
-                numPaths, p, path, numPoints,
-                i, j, vertex1, vertex2;
-
-            // Arguments are a pair of lat, lng variables
-            if (arguments.length == 2) {
-                if (
-                    typeof arguments[0] == "number" &&
-                    typeof arguments[1] == "number"
-                ) {
-                    lat = arguments[0];
-                    lng = arguments[1];
-                }
-            } else if (arguments.length == 1) {
-                bounds = this.getBounds();
-
-                if (!bounds && !bounds.contains(latLng)) {
-                    return false;
-                }
-                lat = latLng.lat();
-                lng = latLng.lng();
-            } else {
-                console.log("Wrong number of inputs in google.maps.Polygon.prototype.contains.LatLng");
-            }
-
-            // Raycast point in polygon method
-
-            numPaths = this.getPaths().getLength();
-            for (p = 0; p < numPaths; p++) {
-                path = this.getPaths().getAt(p);
-                numPoints = path.getLength();
-                j = numPoints - 1;
-
-                for (i = 0; i < numPoints; i++) {
-                    vertex1 = path.getAt(i);
-                    vertex2 = path.getAt(j);
-
-                    if (
-                        vertex1.lng() < lng &&
-                        vertex2.lng() >= lng ||
-                        vertex2.lng() < lng &&
-                        vertex1.lng() >= lng
-                    ) {
-                        if (
-                            vertex1.lat() +
-                            (lng - vertex1.lng()) /
-                            (vertex2.lng() - vertex1.lng()) *
-                            (vertex2.lat() - vertex1.lat()) <
-                            lat
-                        ) {
-                            inPoly = !inPoly;
-                        }
-                    }
-
-                    j = i;
-                }
-            }
-
-            return inPoly;
-        };
-
-        var bounds = new google.maps.LatLngBounds();
-        var center = new google.maps.LatLng(49.83975999, 24.03863613);
-        bounds.extend(center);
-
-        var polygon_items = [{
+    bounds:false,
+    polygon_items:[{
             lat: 49.8271945,
             lng: 23.9546877
         },{
@@ -735,17 +642,113 @@ map.model = {
         },{
             lat: 49.82796707,
             lng: 23.95371415
-        }];
-        var pol_c = [];
+        }],
 
-        for (var i = 0; i < polygon_items.length; i++) {
-            pol_c[pol_c.length] = polygon_items[i];
+    create_map: function() {
 
-            var loc = new google.maps.LatLng(polygon_items[i].lat, polygon_items[i].lng);
-            bounds.extend(loc);
+
+        // Polygon getBounds extension - google-maps-extensions
+        // https://github.com/tparkin/Google-Maps-Point-in-Polygon
+        // http://code.google.com/p/google-maps-extensions/source/browse/google.maps.Polygon.getBounds.js
+        if (!google.maps.Polygon.prototype.getBounds) {
+            google.maps.Polygon.prototype.getBounds = function(latLng) {
+                var bounds = new google.maps.LatLngBounds(),
+                    paths = this.getPaths(),
+                    path,
+                    p, i;
+
+                for (p = 0; p < paths.getLength(); p++) {
+                    path = paths.getAt(p);
+                    for (i = 0; i < path.getLength(); i++) {
+                        bounds.extend(path.getAt(i));
+                    }
+                }
+
+                return bounds;
+            };
         }
 
-        pol_c[pol_c.length] = polygon_items[0];
+        // Polygon containsLatLng - method to determine if a latLng is within a polygon
+        google.maps.Polygon.prototype.containsLatLng = function(latLng) {
+            // Exclude points outside of bounds as there is no way they are in the poly
+
+            var inPoly = false,
+                bounds, lat, lng,
+                numPaths, p, path, numPoints,
+                i, j, vertex1, vertex2;
+
+            // Arguments are a pair of lat, lng variables
+            if (arguments.length == 2) {
+                if (
+                    typeof arguments[0] == "number" &&
+                    typeof arguments[1] == "number"
+                ) {
+                    lat = arguments[0];
+                    lng = arguments[1];
+                }
+            } else if (arguments.length == 1) {
+                bounds = this.getBounds();
+
+                if (!bounds && !bounds.contains(latLng)) {
+                    return false;
+                }
+                lat = latLng.lat();
+                lng = latLng.lng();
+            } else {
+                console.log("Wrong number of inputs in google.maps.Polygon.prototype.contains.LatLng");
+            }
+
+            // Raycast point in polygon method
+
+            numPaths = this.getPaths().getLength();
+            for (p = 0; p < numPaths; p++) {
+                path = this.getPaths().getAt(p);
+                numPoints = path.getLength();
+                j = numPoints - 1;
+
+                for (i = 0; i < numPoints; i++) {
+                    vertex1 = path.getAt(i);
+                    vertex2 = path.getAt(j);
+
+                    if (
+                        vertex1.lng() < lng &&
+                        vertex2.lng() >= lng ||
+                        vertex2.lng() < lng &&
+                        vertex1.lng() >= lng
+                    ) {
+                        if (
+                            vertex1.lat() +
+                            (lng - vertex1.lng()) /
+                            (vertex2.lng() - vertex1.lng()) *
+                            (vertex2.lat() - vertex1.lat()) <
+                            lat
+                        ) {
+                            inPoly = !inPoly;
+                        }
+                    }
+
+                    j = i;
+                }
+            }
+
+            return inPoly;
+        };
+
+        map.model.bounds = new google.maps.LatLngBounds();
+        var center = new google.maps.LatLng(49.83975999, 24.03863613);
+        map.model.bounds.extend(center);
+
+        
+        map.model.pol_c = [];
+
+        for (var i = 0; i < map.model.polygon_items.length; i++) {
+            map.model.pol_c[map.model.pol_c.length] = map.model.polygon_items[i];
+
+            var loc = new google.maps.LatLng(map.model.polygon_items[i].lat, map.model.polygon_items[i].lng);
+            map.model.bounds.extend(loc);
+        }
+
+        map.model.pol_c[map.model.pol_c.length] = map.model.polygon_items[0];
 
 
         var mapOptions = {
@@ -834,37 +837,36 @@ map.model = {
         // Get the HTML DOM element that will contain your map 
         // We are using a div with id="map" seen below in the <body>
         var mapElement = document.getElementById('g_map');
-        var polygon;
         if(!this.map || $('#g_map').children().length == 0){
 
-        	var map = new google.maps.Map(mapElement, mapOptions);
+        	map.model.map_google = new google.maps.Map(mapElement, mapOptions);
 
 
-	        map.fitBounds(bounds);
+	        map.model.map_google.fitBounds(map.model.bounds);
 
 	        // Construct the polygon.
-	        polygon = new google.maps.Polygon({
-	            paths: pol_c,
+	        map.model.polygon = new google.maps.Polygon({
+	            paths: map.model.pol_c,
 	            strokeColor: '#10811a',
 	            strokeOpacity: 0.8,
 	            strokeWeight: 2,
 	            fillColor: '#10811a',
 	            fillOpacity: 0.2
 	        });
-	        polygon.setMap(map);
+	        map.model.polygon.setMap(map.model.map_google);
 
-        	this.map = map;
+        	this.map = map.model.map_google;
 
-        	this.polygon = polygon;
+        	this.polygon = map.model.polygon;
         }else{
-        	map = this.map;
-        	polygon = this.polygon;
+        	map.model.map_google = this.map;
+        	map.model.polygon = this.polygon;
         }
 
 
 
 
-        var geocoder = new google.maps.Geocoder();
+        map.model.geocoder = new google.maps.Geocoder();
 
         //    document.getElementById('submit').addEventListener('click', function() {
 
@@ -875,250 +877,53 @@ map.model = {
         // 
         // 
 
-        google.maps.event.addListener(map, 'click', function(event) {
-            placeMarker(event.latLng, true);
+        google.maps.event.addListener(map.model.map_google, 'click', function(event) {
+            map.model.place_marker(event.latLng, true);
         });
 
-        google.maps.event.addListener(polygon, 'click', function(event) {
-            placeMarker(event.latLng, true);
+        google.maps.event.addListener(map.model.polygon, 'click', function(event) {
+            map.model.place_marker(event.latLng, true);
         });
 
-        function geocodePosition(pos) {
-            geocoder.geocode({
-                latLng: pos
-            }, function(responses) {
-
-                document.getElementById('str_auto').value = '';
-                document.getElementById('str_auto').disabled = false;
-                if(document.getElementById('house_auto')){
-
-	                document.getElementById('house_auto').value = '';
-	                document.getElementById('house_auto').disabled = false;
-                }
-                if (responses && responses.length > 0) {
-
-                	var route = false;
-                	var numb = false;
-
-                    for (var i = 0; i < responses[0].address_components.length; i++) {
-                        if (responses[0].address_components[i].types[0] == "street_number") {
-
-                            if (responses[0].address_components[i].short_name != 'Unnamed Road')
-                                numb= responses[0].address_components[i].short_name
-                        } else if (responses[0].address_components[i].types[0] == "route") {
-                            if (responses[0].address_components[i].short_name != 'Unnamed Road')
-                            route = responses[0].address_components[i].short_name;
-                        }
-                    }
-                    	if(route){
-
-                    		if(numb){
-                    			if(document.getElementById('house_auto')){
-                    				document.getElementById('house_auto').value = numb;
-                                    document.getElementById('house_auto').closest('.inp-wrap').classList.remove('error-input');
-									document.getElementById('str_auto').value = route;
-                                    document.getElementById('str_auto').closest('.inp-wrap').classList.remove('error-input');
-                    			}else{
-
-									document.getElementById('str_auto').value = route+' '+numb;
-                                    
-                                    if(!document.getElementById('str_auto').closest('.inp-wrap')){
-                                        document.getElementById('str_auto').classList.remove('error-input');
-
-                                    }else{
-                                        document.getElementById('str_auto').closest('.inp-wrap').classList.remove('error-input');
-
-                                    }
-                    			}
-                    		}else{
-
-								document.getElementById('str_auto').value = route;
-                                
-                                    if(!document.getElementById('str_auto').closest('.inp-wrap')){
-                                        document.getElementById('str_auto').classList.remove('error-input');
-
-                                    }else{
-                                        document.getElementById('str_auto').closest('.inp-wrap').classList.remove('error-input');
-
-                                    }
-                            }
-
-                    	}else{
-
-                    	} 
-
-                    console.log('click position = ', responses[0]);
-                } else {
-                    //updateMarkerAddress('Cannot determine address at this location.');
-                }
-            });
-        }
-
-        var markers = [];
-
-
-        function placeMarker(location, click) {
-            deleteMarkers();
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-            markers.push(marker);
-            map.setCenter(location);
-            map.setZoom(14);
-            if (click) {
-                geocodePosition(location);
-            }
-
-            if (!polygon.containsLatLng(location)) {
-
-            	var new_bounds = new google.maps.LatLngBounds();         
-		        for (var i = 0; i < polygon_items.length; i++) {
-		            pol_c[pol_c.length] = polygon_items[i];
-
-		            var loc = new google.maps.LatLng(polygon_items[i].lat, polygon_items[i].lng);
-		            new_bounds.extend(loc);
-		        }
-
-            	new_bounds.extend(location)
-
-        		map.fitBounds(new_bounds);
-                $('#g_map').closest('.inp-wrap').addClass('error-input').addClass('drag-input');
-
-
-                setTimeout(function() {
-                    $('#g_map').closest('.inp-wrap').removeClass('drag-input');
-
-                }, 1000)
-            }else{
-                $('#g_map').closest('.inp-wrap').removeClass('error-input')
-
-            }
-        }
-
-        function setMapOnAll(map) {
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].setMap(map);
-            }
-        }
-
-
-        // Removes the markers from the map, but keeps them in the array.
-        function clearMarkers() {
-            setMapOnAll(null);
-        }
-
-        function deleteMarkers() {
-            clearMarkers();
-            markers = [];
-        }
-
-        function geocodeAddress(geocoder, resultsMap) {
-            var address = document.getElementById('str_auto').value;
-            var bad = function(){
-                var str = 'empty';
-                if(document.getElementById('house_auto')){
-                    str= document.getElementById('house_auto').value;
-                }
-                if(str.length>0){
-                        $('#str_auto').closest('.inp-wrap').addClass('error-input').addClass('drag-input');
-                        setTimeout(function() {
-                            $('#str_auto').closest('.inp-wrap').removeClass('drag-input');
-                        }, 1000);
-                }else{
-                    if($('#str_auto').val().length>3){
-
-                        $('#house_auto').closest('.inp-wrap').addClass('error-input').addClass('drag-input');
-                        setTimeout(function() {
-                            $('#house_auto').closest('.inp-wrap').removeClass('drag-input');
-                        }, 1000);   
-                    }else{
-                        $('#str_auto').closest('.inp-wrap').addClass('error-input').addClass('drag-input');
-                        setTimeout(function() {
-                            $('#str_auto').closest('.inp-wrap').removeClass('drag-input');
-                        }, 1000);
-
-                    }                 
-                }
-                        
-            }
-            var str = 'empty';
-                if(document.getElementById('house_auto')){
-                    str= document.getElementById('house_auto').value;
-                } 
-            if(address.length>2 && str.length>0){
-                address = 'Львів, '+address;
-                if(document.getElementById('house_auto') && document.getElementById('house_auto').value.length>0){
-                    address+= ' ' + document.getElementById('house_auto').value;
-                } 
-                geocoder.geocode({
-                    'address': address
-                }, function(results, status) {
-                    if (status === 'OK') {
-                        resultsMap.setCenter(results[0].geometry.location);
-                        placeMarker(results[0].geometry.location);
-                        $('#str_auto').closest('.inp-wrap').removeClass('error-input')
-                    } else {
-
-                        bad();
-                    }
-                });
-            }else{
-
-                bad();
-            }
-            
-        }
 
 
 
-        var placeSearch, autocomplete;
-        var componentForm = {
-            route: 'short_name'
-        };
-
-        var a_listner;
-
-        function initAutocomplete() {
-            // Create the autocomplete object, restricting the search to geographical
-            // location types.
-            // 
-            var bounds_def = new google.maps.LatLngBounds(
-                new google.maps.LatLng(49.96981811, 23.89372815),
-                new google.maps.LatLng(49.74574092, 24.16254986)
-            );
-
-            autocomplete = new google.maps.places.Autocomplete(
-                /** @type {!HTMLInputElement} */
-                (document.getElementById('str_auto')), {
-                    bounds: bounds,
-                    types: ['geocode'],
-                    strictBounds: true
-                });
 
 
+        var placeSearch;
 
-            $('#str_auto,#house_auto').unbind('focus').focus(function() {
-                $(this).closest('.inp-wrap').removeClass('error-input');
-                //geolocate();
-            });
 
-            $('#str_auto,#house_auto').unbind('blur').blur(function() {
-                //setTimeout(function() {
-                        fillInAddress();
-                    //}, 400)
-                    //geolocate();
-            });
+        
 
-            // When the user selects an address from the dropdown, populate the address
-            // fields in the form.
-            a_listner = autocomplete.addListener('place_changed', fillInAddress);
-        }
+        // Bias the autocomplete object to the user's geographical location,
+        // as supplied by the browser's 'navigator.geolocation' object.
+        // function geolocate() {
+        //     if (navigator.geolocation) {
+        //         navigator.geolocation.getCurrentPosition(function(position) {
+        //             var geolocation = {
+        //                 lat: position.coords.latitude,
+        //                 lng: position.coords.longitude
+        //             };
+        //             var circle = new google.maps.Circle({
+        //                 center: geolocation,
+        //                 radius: position.coords.accuracy
+        //             });
+        //             map.model.autocomplete.setBounds(circle.getBounds());
+        //         });
+        //     }
+        // }
+        map.model.init_autocomplete();
 
-        function fillInAddress() {
+
+    },
+    a_listner:false,
+    geocode_page:function(callback,callback_false){
             // Get the place details from the autocomplete object.
-            var place = autocomplete.getPlace();
+            var place = map.model.autocomplete.getPlace();
 
+            var componentForm = {
+                route: 'short_name'
+            };
             if (if_defined(place) && if_defined(place.address_components)) {
                 // Get each component of the address from the place details
                 // and fill the corresponding field on the form.
@@ -1134,39 +939,321 @@ map.model = {
                         var val = place.address_components[i][componentForm[addressType]];
                         document.getElementById('str_auto').value = val;
                         $('#str_auto').closest('.inp-wrap').removeClass('error-input');
+                        map.model.geocode_address(map.model.geocoder, map.model.map_google,callback,callback_false);
                     }
                 }
 
-                google.maps.event.removeListener(a_listner);
-                autocomplete.set('place', null);
-                a_listner = autocomplete.addListener('place_changed', fillInAddress);
+                google.maps.event.removeListener(map.model.a_listner);
+                
+
+                map.model.autocomplete.set('place', null);
+                map.model.a_listner = map.model.autocomplete.addListener('place_changed', map.model.geocode_page);
             } else {
 
-                geocodeAddress(geocoder, map);
+                map.model.geocode_address(map.model.geocoder, map.model.map_google,callback,callback_false);
 
 
             }
-        }
+    },
+    markers:[],    
+    place_marker:function(location, click,callback) {
 
-        // Bias the autocomplete object to the user's geographical location,
-        // as supplied by the browser's 'navigator.geolocation' object.
-        function geolocate() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var geolocation = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    var circle = new google.maps.Circle({
-                        center: geolocation,
-                        radius: position.coords.accuracy
-                    });
-                    autocomplete.setBounds(circle.getBounds());
-                });
+        
+
+
+            
+
+            function setMapOnAll(map_google) {
+                for (var i = 0; i < map.model.markers.length; i++) {
+                    map.model.markers[i].setMap(map_google);
+                }
             }
+
+
+            // Removes the markers from the map, but keeps them in the array.
+            function clearMarkers() {
+                setMapOnAll(null);
+            }
+            function deleteMarkers() {
+                clearMarkers();
+                map.model.markers = [];
+            }
+
+            deleteMarkers();
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map.model.map_google
+            });
+            map.model.markers.push(marker);
+            map.model.map_google.setCenter(location);
+            if(map.model.map_google.getZoom()<14){
+
+                map.model.map_google.setZoom(14);
+            }
+            if (click) {
+                map.model.geocode_position(location);
+            }
+
+            if (!map.model.polygon.containsLatLng(location)) {
+
+                var new_bounds = new google.maps.LatLngBounds();         
+                for (var i = 0; i < map.model.polygon_items.length; i++) {
+                    map.model.pol_c[map.model.pol_c.length] = map.model.polygon_items[i];
+
+                    var loc = new google.maps.LatLng(map.model.polygon_items[i].lat, map.model.polygon_items[i].lng);
+                    new_bounds.extend(loc);
+                }
+
+                new_bounds.extend(location)
+
+                map.model.map_google.fitBounds(new_bounds);
+                $('#g_map').closest('.inp-wrap').addClass('error-input').addClass('drag-input');
+
+
+                setTimeout(function() {
+                    $('#g_map').closest('.inp-wrap').removeClass('drag-input');
+
+                }, 1000)
+            }else{
+                $('#g_map').closest('.inp-wrap').removeClass('error-input');
+                if(callback){
+                    callback();
+                }
+
+            }
+        },    
+
+    geocode_position:function(pos) {
+
+
+        $('<div class="loading" id="map_loader"><div></div><p>Перевіряємо адресу</p></div>').appendTo('#loading_wrap');
+        map.model.geocoder.geocode({
+            latLng: pos
+        }, function(responses) {
+            $('#map_loader').remove();
+            document.getElementById('str_auto').value = '';
+            document.getElementById('str_auto').disabled = false;
+            if(document.getElementById('house_auto')){
+
+                document.getElementById('house_auto').value = '';
+                document.getElementById('house_auto').disabled = false;
+            }
+            if (responses && responses.length > 0) {
+
+                var route = false;
+                var numb = false;
+
+                for (var i = 0; i < responses[0].address_components.length; i++) {
+                    if (responses[0].address_components[i].types[0] == "street_number") {
+
+                        if (responses[0].address_components[i].short_name != 'Unnamed Road')
+                            numb= responses[0].address_components[i].short_name
+                    } else if (responses[0].address_components[i].types[0] == "route") {
+                        if (responses[0].address_components[i].short_name != 'Unnamed Road')
+                        route = responses[0].address_components[i].short_name;
+                    }
+                }
+                    if(route){
+
+                        if(numb){
+                            if(document.getElementById('house_auto')){
+                                document.getElementById('house_auto').value = numb;
+                                document.getElementById('house_auto').closest('.inp-wrap').classList.remove('error-input');
+                                document.getElementById('str_auto').value = route;
+                                document.getElementById('str_auto').closest('.inp-wrap').classList.remove('error-input');
+                            }else{
+
+                                document.getElementById('str_auto').value = route+' '+numb;
+                                
+                                if(!document.getElementById('str_auto').closest('.inp-wrap')){
+                                    document.getElementById('str_auto').classList.remove('error-input');
+
+                                }else{
+                                    document.getElementById('str_auto').closest('.inp-wrap').classList.remove('error-input');
+
+                                }
+                            }
+                        }else{
+
+                            document.getElementById('str_auto').value = route;
+                            
+                                if(!document.getElementById('str_auto').closest('.inp-wrap')){
+                                    document.getElementById('str_auto').classList.remove('error-input');
+
+                                }else{
+                                    document.getElementById('str_auto').closest('.inp-wrap').classList.remove('error-input');
+
+                                }
+                        }
+
+                    }else{
+
+                    } 
+
+                console.log('click position = ', responses[0]);
+            } else {
+                //updateMarkerAddress('Cannot determine address at this location.');
+            }
+        });
+    }
+    ,
+
+    init_autocomplete:function() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            // 
+        var bounds_def = new google.maps.LatLngBounds(
+            new google.maps.LatLng(49.96981811, 23.89372815),
+            new google.maps.LatLng(49.74574092, 24.16254986)
+        );
+
+        map.model.autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */
+            (document.getElementById('str_auto')), {
+                bounds: map.model.bounds,
+                types: ['geocode'],
+                strictBounds: true
+            });
+
+
+
+        $('#str_auto,#house_auto').unbind('focus').focus(function() {
+            $(this).closest('.inp-wrap').removeClass('error-input');
+            //geolocate();
+        });
+
+        $('#str_auto,#house_auto').unbind('blur').blur(function() {
+            //setTimeout(function() {
+            //
+            map.model.geocode_page(function(){
+                //alert('good');
+            });
+                    //fillInAddress();
+                //}, 400)
+                //geolocate();
+        });
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        map.model.a_listner = map.model.autocomplete.addListener('place_changed', map.model.geocode_page);
+    },
+
+    geocode_address:function(geocoder, resultsMap,callback,callback_false) {
+        var address = document.getElementById('str_auto').value;
+
+        if(document.getElementById('house_auto')){
+            var str = document.getElementById('house_auto').value;
+
+            var filtered_num = '';
+            for (var i = 0; i < str.length; i++) {
+                if (/[0-9]/.test(str[i])) {
+                    filtered_num += str[i];
+                }
+
+            }
+            str = filtered_num;
+            document.getElementById('house_auto').value = str;
         }
-        initAutocomplete();
 
+        var bad = function(street_number){
+            var str = 'empty';
+            if(document.getElementById('house_auto')){
+                str = document.getElementById('house_auto').value;
 
+                var filtered_num = '';
+                for (var i = 0; i < str.length; i++) {
+                    if (/[0-9]/.test(str[i])) {
+                        filtered_num += str[i];
+                    }
+
+                }
+                str = filtered_num;
+                document.getElementById('house_auto').value = str;
+            }
+            if(str.length>0&&!street_number){
+                    $('#str_auto').closest('.inp-wrap').addClass('error-input').addClass('drag-input');
+                    setTimeout(function() {
+                        $('#str_auto').closest('.inp-wrap').removeClass('drag-input');
+                    }, 1000);
+            }else{
+                if($('#str_auto').val().length>3 && !street_number){
+
+                    $('#house_auto').closest('.inp-wrap').addClass('error-input').addClass('drag-input');
+                    setTimeout(function() {
+                        $('#house_auto').closest('.inp-wrap').removeClass('drag-input');
+                    }, 1000);   
+                }else{
+                    if(street_number){
+
+                        
+                        $('#house_auto').closest('.inp-wrap').addClass('error-input').addClass('drag-input');
+                        setTimeout(function() {
+                            $('#house_auto').closest('.inp-wrap').removeClass('drag-input');
+                        }, 1000);
+                    }else{
+
+                        $('#str_auto').closest('.inp-wrap').addClass('error-input').addClass('drag-input');
+                        setTimeout(function() {
+                            $('#str_auto').closest('.inp-wrap').removeClass('drag-input');
+                        }, 1000);
+                    }
+
+                }                 
+            }
+            if(callback_false){
+                callback_false();
+            }
+                    
+        }
+        var str = 'empty';
+            if(document.getElementById('house_auto')){
+                str= document.getElementById('house_auto').value;
+            } 
+        if(address.length>2 && str.length>0){
+            address = 'Львів, '+address;
+            if(document.getElementById('house_auto') && document.getElementById('house_auto').value.length>0){
+                address+= ' ' + document.getElementById('house_auto').value;
+            } 
+
+            $('<div class="loading" id="map_loader"><div></div><p>Перевіряємо адресу</p></div>').appendTo('#loading_wrap');
+            geocoder.geocode({
+                'address': address
+            }, function(results, status) {
+                console.log('geocode_results = ',results);
+                $('#map_loader').remove();
+                if (status === 'OK') {
+                    if(!results||
+                     results.length== 0 || 
+                     results[0].address_components[0].long_name == 'Львів'){
+
+                        bad();
+                    }else if(results[0].address_components[0].types[0]!="street_number"){
+                        //alert(results[0].address_components[0].types[0]);
+                        if(results[0].address_components[0].types[0]=="political"){
+
+                            bad();
+                        }else{
+                            bad(true);
+
+                        }
+                    }else{
+                        
+                        resultsMap.setCenter(results[0].geometry.location);
+                        map.model.place_marker(results[0].geometry.location,callback);
+                        $('#str_auto').closest('.inp-wrap').removeClass('error-input');
+                        if(callback){
+                            callback();
+                        }
+                    }
+                } else {
+
+                    bad();
+                }
+            });
+        }else{
+
+            bad();
+        }
+        
     }
 };

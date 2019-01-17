@@ -54,8 +54,27 @@ checkout.events = {
 
             if ($err.length == 0) {
 
-                checkout.model.send_cart();
+                map.model.geocode_page(function(){
 
+                    var $err = checkout.view.checkout_wrap.find('.error-input');
+
+                    if ($err.length == 0) {
+
+                        checkout.model.send_cart();
+
+                    } else {
+                        $("html, body").animate({
+                            scrollTop: $err.first().offset().top - 120
+                        }, 300);
+                    }
+                },function(){
+                    
+
+                    var $err = checkout.view.checkout_wrap.find('.error-input');
+                    $("html, body").animate({
+                        scrollTop: $err.first().offset().top - 120
+                    }, 300);
+                });
             } else {
                 $("html, body").animate({
                     scrollTop: $err.first().offset().top - 120

@@ -33,6 +33,9 @@ function get_site_settings(callback){
 
         global_delivery_min_cart = parseInt(data.data.DELIVER_FREE_LIMIT);//250;
         global_max_cache = parseInt(data.data.LIMIT_PAY_CARD);//1000;
+
+        $('body').children('.initing').fadeOut(250);
+
         if(callback){
             callback();
         }
@@ -395,7 +398,10 @@ $(document).ready(function() {
     // });
     api_config_init(function() { //c кольбеком
         //иницирование пользователя
-        open_from_url();
+        get_site_settings(function(){
+
+            open_from_url();
+        });
     });
 
 

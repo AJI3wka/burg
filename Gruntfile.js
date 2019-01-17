@@ -901,7 +901,7 @@ module.exports = function(grunt) {
                     spawn: true,
                     livereload: {
                         host: 'localhost',
-                        port: 2201, //LIVERELOAD_PORT
+                        port: 3144, //LIVERELOAD_PORT
                     }
                 },
                 //при изменеии любых сорс файлов
