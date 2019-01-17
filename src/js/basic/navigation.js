@@ -76,7 +76,7 @@ var page_parts = [{
     type: 'main',
     wrap: $main_container,
     source: "/html/parts/404.html",
-    module: null,
+    module: 'menu',
     opened: true
 },{
     part: 'delivery',

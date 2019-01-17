@@ -10,14 +10,15 @@ menu.events = {
 		e.preventDefault();
 		
 		open_from_url($(this).attr('href'),true);
+        $("html, body").animate({ scrollTop: 0}, 200);
 	},
     rebind: function() {
     	menu.view.header.find('.menu_link').unbind('click').click(menu.events.menu_link_click);
     	menu.view.footer.find('.menu_link').unbind('click').click(menu.events.menu_link_click);
-
+        //$('body').on('click',click_once);
     	click_once = function(){
     		menu.view.header.find('.menu').removeClass('opened');
-    		$('body').unbind('click',click_once);
+    		$('body').unbind('click touchmove touch',click_once);
     	}
 
     	menu.view.header.find('.btn').unbind('click').click(function(e){
@@ -30,7 +31,7 @@ menu.events = {
 				$menu.removeClass('opened');
     		}else{
     			$menu.addClass('opened');
-    			$('body').unbind('click',click_once).bind('click',click_once);
+    			$('body').unbind('click touchmove touch',click_once).on('click touchmove touch',click_once);
 
     		}
     	});

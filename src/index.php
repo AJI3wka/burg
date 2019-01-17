@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <!-- livereload с grunt, не удалять. Автоматически удаляется при упаковке -->
-        <script src="http://localhost:3144/livereload.js"></script>
+        <script src="http://localhost:7622/livereload.js"></script>
         
         <!-- блок метаданных -->
         <meta charset="UTF-8">

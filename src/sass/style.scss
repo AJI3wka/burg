@@ -275,6 +275,7 @@ $duration: 1.4s;
         position: relative;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: all 0.2s;
+        max-width: 100%; 
     }
 }
 .app-wrap{
@@ -447,8 +448,8 @@ header {
                     background-image: url(../img/information.svg);
                 }
             }
-
-            &:hover,&.opened {
+            //&:hover,
+            &.opened {
                 .list {
                     display: block;
                 }
@@ -8673,13 +8674,20 @@ body{
 }
 
 @media screen and (max-width: 479px) {
+    .app-wrap #main_cont, .app-wrap #cart_wrp, .app-wrap #checkout_wrp{
+        padding-top: 66px;
+    }
     header {
         margin-bottom: 21px;
+        padding-left: 2%;
+        padding-right: 2%;
+        height: 66px;
 
         .ibw {
             max-width: 320px;
-            margin-top: 8px;
-            margin-bottom: 20px;
+            //margin-top: 8px;
+            margin-top: 0px;
+            //margin-bottom: 20px;
 
             .logo {
                 width: 90px;

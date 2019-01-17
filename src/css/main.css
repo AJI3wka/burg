@@ -224,7 +224,8 @@ section {
     font-weight: 700;
     position: relative;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: all 0.2s; }
+    transition: all 0.2s;
+    max-width: 100%; }
 
 .app-wrap #main_cont, .app-wrap #cart_wrp, .app-wrap #checkout_wrp {
   padding-top: 78px; }
@@ -358,7 +359,7 @@ header {
           background-image: url(../img/salad.svg); }
         header .ibw .menu .list a.pos5 {
           background-image: url(../img/information.svg); }
-      header .ibw .menu:hover .list, header .ibw .menu.opened .list {
+      header .ibw .menu.opened .list {
         display: block; }
     header .ibw .phone {
       font-family: MuseoSansCyrl;
@@ -3690,12 +3691,16 @@ body {
         background-image: url(../img/phone.png); } }
 
 @media screen and (max-width: 479px) {
+  .app-wrap #main_cont, .app-wrap #cart_wrp, .app-wrap #checkout_wrp {
+    padding-top: 66px; }
   header {
-    margin-bottom: 21px; }
+    margin-bottom: 21px;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 66px; }
     header .ibw {
       max-width: 320px;
-      margin-top: 8px;
-      margin-bottom: 20px; }
+      margin-top: 0px; }
       header .ibw .logo {
         width: 90px;
         height: 48px;
