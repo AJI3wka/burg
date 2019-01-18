@@ -57,8 +57,8 @@ var page_parts = [{
     type: 'main',
     wrap: $main_container,
     alt:[{
-        url:'/salads',
-        name: 'Салати'
+        url:'/garnish',
+        name: 'Гарніри'
     },{
         url:'/drinks',
         name: 'Напої'
@@ -92,8 +92,8 @@ var page_parts = [{
     part: 'card',
     url: '/burgers/card',
     alt:[{
-        url:'/salads/card',
-        name: 'Салати'
+        url:'/garnish/card',
+        name: 'Гарніри'
     }],
     name: 'Бургери',
     type: 'main',
@@ -552,6 +552,8 @@ global_current_path=cur;
         open_part('404');
 
     }
+    
+        $("html, body").animate({ scrollTop: 0}, 200);
 }
 
 /**

@@ -156,7 +156,7 @@ ls.model = {
 
 				ls.model.to_pay.souses = [];
 				ls.model.to_pay.burgers = [];
-				ls.model.to_pay.salads = [];
+				ls.model.to_pay.garnish = [];
 				ls.model.to_pay.drinks = [];
 
 			}
@@ -177,7 +177,7 @@ ls.model = {
 				souses:[],
 				drinks:[],
 				burgers:[],
-				salads:[]
+				garnish:[]
 			}
 			localStorage['to_pay'] = JSON.stringify(ls.model.to_pay);
 

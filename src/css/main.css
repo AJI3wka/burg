@@ -356,7 +356,7 @@ header {
         header .ibw .menu .list a.pos3 {
           background-image: url(../img/sauce.svg); }
         header .ibw .menu .list a.pos4 {
-          background-image: url(../img/salad.svg); }
+          background-image: url(../img/garnish.svg); }
         header .ibw .menu .list a.pos5 {
           background-image: url(../img/information.svg); }
       header .ibw .menu.opened .list {
@@ -871,10 +871,10 @@ header {
       margin-bottom: 16px;
       text-align: center;
       line-height: 400px;
-      background-image: url(../img/m_d.png);
+      background-image: url(../img/m_g.png);
       background-size: auto 100%;
-      background-position: bottom; }
-      .sec1 .r_main .salatu .salads {
+      color: transparent; }
+      .sec1 .r_main .salatu .garnish {
         font-size: 56px;
         font-weight: 900;
         color: #151515;
@@ -889,18 +889,21 @@ header {
       background-color: #ebebeb;
       display: inline-block;
       line-height: 180px;
-      vertical-align: top; }
+      vertical-align: top;
+      background-image: url(../img/m_s.png);
+      background-size: auto 100%;
+      color: transparent; }
       .sec1 .r_main .soysu .sauces {
         font-size: 40px;
         font-weight: 900;
         color: #151515;
+        color: transparent;
         display: block;
         text-align: center;
         position: relative;
         height: 100%; }
     .sec1 .r_main .napoi {
       width: 200px;
-      width: 416px;
       margin-right: 0;
       height: 200px;
       border-radius: 3px;
@@ -909,14 +912,14 @@ header {
       text-align: center;
       line-height: 180px;
       margin-right: 16px;
-      background-image: url(../img/m_s.png);
-      background-size: auto 150%;
+      background-image: url(../img/m_d.png);
+      background-size: auto 100%;
+      background-position: bottom;
       color: transparent; }
       .sec1 .r_main .napoi .beverages {
         display: block;
         font-size: 40px;
         font-weight: 900;
-        color: #151515;
         color: transparent;
         text-align: center;
         position: relative;
@@ -1743,7 +1746,7 @@ header {
       .card .right .navigation a.main, .card .right .navigation a.category {
         color: #6b6b6b; }
     .card .right .h-name {
-      font-size: 56px;
+      font-size: 52px;
       line-height: 56px;
       font-weight: 900;
       text-align: left; }
@@ -2209,7 +2212,9 @@ header {
     .card .top-head .h-name {
       font-size: 64px;
       line-height: 64px;
-      font-weight: 900; }
+      font-weight: 900;
+      max-width: 600px;
+      margin: 0 auto; }
     .card .top-head .inf {
       font-size: 18px;
       line-height: 22px;
@@ -2513,8 +2518,8 @@ body {
     header .ibw .menu .btn {
       display: none; }
     header .ibw .menu .list {
-      width: 600px;
-      margin-left: 50px;
+      width: 640px;
+      margin-left: 10px;
       height: 60px;
       display: block;
       border: none;
@@ -2524,9 +2529,9 @@ body {
       padding: 0; }
       header .ibw .menu .list a {
         display: inline-block;
-        padding-left: 70px;
-        background-position: 14px center;
-        padding-right: 14px;
+        padding-left: 54px;
+        background-position: 4px center;
+        padding-right: 8px;
         margin-top: 4px; }
     header .ibw .phone {
       margin-top: 31px;
@@ -2585,7 +2590,7 @@ body {
       .sec1 .r_main .salatu {
         width: 100%;
         height: 465px; }
-        .sec1 .r_main .salatu .salads {
+        .sec1 .r_main .salatu .garnish {
           line-height: 423px; }
       .sec1 .r_main .soysu {
         width: 272px;
@@ -2701,7 +2706,7 @@ body {
     .sec1 .butts {
       max-width: 1150px; }
   .card {
-    padding-top: 7px; }
+    padding-top: 12px; }
     .card > div {
       max-width: 1136px; }
     .card .left {
@@ -2788,7 +2793,7 @@ body {
       .sec1 .r_main .salatu {
         width: 656px;
         height: 440px; }
-        .sec1 .r_main .salatu .salads {
+        .sec1 .r_main .salatu .garnish {
           line-height: 400px; }
       .sec1 .r_main .soysu {
         width: 320px;
@@ -3052,7 +3057,7 @@ body {
       .sec1 .r_main .salatu {
         height: 400px;
         float: left; }
-        .sec1 .r_main .salatu .salads {
+        .sec1 .r_main .salatu .garnish {
           line-height: 363px; }
       .sec1 .r_main .soysu {
         width: 224px;
@@ -3312,6 +3317,7 @@ body {
         left: 46px; }
   .sec1 {
     max-width: 480px;
+    padding-top: 24px;
     margin: 0 auto 00px; }
     .sec1 > div {
       max-width: 480px; }
@@ -3447,7 +3453,7 @@ body {
         width: 100%;
         margin: 0 auto 16px;
         height: 416px; }
-        .sec1 .r_main .salatu .salads {
+        .sec1 .r_main .salatu .garnish {
           line-height: 378px;
           font-size: 85px; }
       .sec1 .r_main .soysu {
@@ -3731,12 +3737,15 @@ body {
       header .main_ibw .korzina {
         margin-left: 13px; }
   .sec1 {
-    width: 100%; }
+    width: 100%;
+    padding-top: 10px; }
     .sec1 > div {
       max-width: 320px; }
-    .sec1 .sld1 .main_burg p.brgs {
-      padding: 0;
-      text-align: center; }
+    .sec1 .sld1 {
+      margin-bottom: 0; }
+      .sec1 .sld1 .main_burg p.brgs {
+        padding: 0;
+        text-align: center; }
     .sec1 .pos_basket {
       margin: 0px 13px 20px;
       background-image: none;
@@ -3827,7 +3836,7 @@ body {
       .sec1 .r_main .salatu {
         width: 272px;
         height: 264px; }
-        .sec1 .r_main .salatu .salads {
+        .sec1 .r_main .salatu .garnish {
           font-size: 56px;
           line-height: 241px; }
       .sec1 .r_main .soysu {

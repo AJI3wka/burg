@@ -26,10 +26,10 @@ basket_events.events = {
 			var category = document.location.pathname.replace('/card','').replace('/','');
 			
 
-			if (parseInt($(this).parent().find('.howmuch').html())>1) {
+			//if (parseInt($(this).parent().find('.howmuch').html())>1) {
 
 				basket_events.model.remove_item(category,id);
-			}			
+			//}			
 		});
 	},
 	rebind_card_souses:function(){
@@ -52,10 +52,10 @@ basket_events.events = {
 			var category = 'souses';
 			
 
-			if (parseInt($(this).parent().find('span').html())>1) {
+			//if (parseInt($(this).parent().find('span').html())>1) {
 
 				basket_events.model.remove_item(category,id);
-			}			
+			//}			
 		});
 
 
@@ -80,10 +80,10 @@ basket_events.events = {
 			var category = 'drinks';
 			
 
-			if (parseInt($(this).parent().find('span').html())>1) {
+			//if (parseInt($(this).parent().find('span').html())>1) {
 
 				basket_events.model.remove_item(category,id);
-			}			
+			//}			
 		});
 	},
 	rebind_list:function(){
@@ -105,10 +105,10 @@ basket_events.events = {
 			var id = $(this).closest('.item').attr('data-id');
 			var category = document.location.pathname.replace('/','');
 
-			if (parseInt($(this).parent().find('.howmuch').html())>1) {
+			//if (parseInt($(this).parent().find('.howmuch').html())>1) {
 
 				basket_events.model.remove_item(category,id);
-			}			
+			//}			
 		});
 
 
@@ -126,10 +126,10 @@ basket_events.events = {
 			var id = $p.attr('data-id');
 			var category = $p.attr('data-category');
 
-			if (parseInt($(this).parent().find('.howmuch').html())>1) {
+			//if (parseInt($(this).parent().find('.howmuch').html())>1) {
 
 				basket_events.model.remove_item(category,id);
-			}
+			//}
 			
 		});
 		basket_events.view.wrap.find('.list').find('.close').unbind('click').click(function(){
@@ -154,10 +154,10 @@ basket_events.events = {
 			var id = $p.attr('data-id');
 			var category = $p.attr('data-category');
 			
-			if (parseInt($(this).parent().find('.howmuch').html())>1) {
+			//if (parseInt($(this).parent().find('.howmuch').html())>1) {
 
 				basket_events.model.remove_item(category,id);
-			}
+			//}
 		});
 		basket_events.view.wrap.find('.list').find('.close').unbind('click').click(function(){
 			var $p = $(this).closest('.pos');

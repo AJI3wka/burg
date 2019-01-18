@@ -50,7 +50,7 @@ card.model = {
 			weight:150,
 			id:5
 		}],
-		salads:[{
+		garnish:[{
 			img:'/img/salad/salad1.png',
 			name:'Салат Грецький',
 			desc:'Булка, салат айсберг, помыдор, котлета, фуагра, верння смородини, сир камамбер, сир моцарела, сир моцарела, соус чилі, огірок, соус',
@@ -158,8 +158,8 @@ card.model = {
 			if (path == '/burgers/card') {
 				card.view.render('burgers');
 			}else 
-			if (path == '/salads/card') {
-				card.view.render('salads');
+			if (path == '/garnish/card') {
+				card.view.render('garnish');
 			}else 
 			if (path == '/drinks/card') {
 				card.view.render('drinks');

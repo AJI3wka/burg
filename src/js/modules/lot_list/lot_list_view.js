@@ -16,9 +16,9 @@ lot_list.view = {
 			$link.html('Бургери').attr('href', '/'+category);
 			$title.html('Бургери');
 		}else 
-		if (category == 'salads') {
-			$link.html('Салати').attr('href', '/'+category);
-			$title.html('Салати');
+		if (category == 'garnish') {
+			$link.html('Гарніри').attr('href', '/'+category);
+			$title.html('Гарніри');
 		}else 
 		if (category == 'drinks') {
 			$link.html('Напої').attr('href', '/'+category);
@@ -42,7 +42,7 @@ lot_list.view = {
 			html+='<div class="active"></div>';
 			html+='<p class="h2">'+list[i].name+'</p>';
 			html+='<div class="img_b"><img src="'+list[i].img+'"></div>';
-			if (category == 'burgers'||category == 'salads') {
+			if (category == 'burgers'||category == 'garnish') {
 
 				html+='<p class="ingredient">'+list[i].desc+'</p>';
 				

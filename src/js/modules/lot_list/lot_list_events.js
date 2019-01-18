@@ -7,7 +7,7 @@ console.log('lot_list.events start');
 lot_list.events = {
 	list_rebind:function(){
 		var category = document.location.pathname.replace('/','');
-		if (category == 'burgers' || category == 'salads') {
+		if (category == 'burgers' || category == 'garnish') {
 	    	lot_list.view.wrap.find('.item-wrap').find('.item').find('.img_b').unbind('click').click(function(){
 	    		open_from_url(document.location.pathname+'/card?i='+$(this).closest('.item').attr('data-id'),true);
 	    	});

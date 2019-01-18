@@ -10,7 +10,6 @@ menu.events = {
 		e.preventDefault();
 		
 		open_from_url($(this).attr('href'),true);
-        $("html, body").animate({ scrollTop: 0}, 200);
 	},
     rebind: function() {
     	menu.view.header.find('.menu_link').unbind('click').click(menu.events.menu_link_click);

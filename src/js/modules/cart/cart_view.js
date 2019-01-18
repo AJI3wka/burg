@@ -26,6 +26,9 @@ cart.view = {
 							}else if(key == 'drinks'){
 								name = 'Напій '
 
+							}else if(key == 'garnish'){
+								name = 'Гарнір '
+
 							}
 
 							list_html+='<div class="pos_basket" data-category="'+key+'" data-id="'+ls.model.to_pay[key][i].id+'">';

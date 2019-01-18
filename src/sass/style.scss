@@ -441,7 +441,7 @@ header {
                 }
 
                 a.pos4 {
-                    background-image: url(../img/salad.svg);
+                    background-image: url(../img/garnish.svg);
                 }
 
                 a.pos5 {
@@ -1123,11 +1123,11 @@ header {
             margin-bottom: 16px;
             text-align: center;
             line-height: 400px;
-            background-image: url(../img/m_d.png);
+            background-image: url(../img/m_g.png);
             background-size: auto 100%;
-            background-position: bottom;
+            color:transparent;
 
-            .salads {
+            .garnish {
                 font-size: 56px;
                 font-weight: 900;
                 color: #151515;
@@ -1146,11 +1146,15 @@ header {
             display: inline-block;
             line-height: 180px;
             vertical-align: top;
+            background-image: url(../img/m_s.png);
+            background-size: auto 100%;
+            color:transparent;
 
             .sauces {
                 font-size: 40px;
                 font-weight: 900;
                 color: #151515;
+                color:transparent;
                 display: block;
                 text-align: center;
                 position: relative;
@@ -1160,7 +1164,7 @@ header {
 
         .napoi {
             width: 200px;
-            width: 416px;
+            //width: 416px;
             margin-right: 0;
             height: 200px;
             border-radius: 3px;
@@ -1169,15 +1173,15 @@ header {
             text-align: center;
             line-height: 180px;
             margin-right: 16px;
-            background-image: url(../img/m_s.png);
-            background-size: auto 150%;
+            background-image: url(../img/m_d.png);
+            background-size: auto 100%;
+            background-position: bottom;
             color:transparent;
 
             .beverages {
                 display: block;
                 font-size: 40px;
                 font-weight: 900;
-                color: #151515;
                 color:transparent;
                 text-align: center;
                 position: relative;
@@ -2232,6 +2236,11 @@ header {
 
 .card {
     padding-top: 25px;
+    // &[data-category="garnish"]{
+    //     &> div .bx-viewport .item.fadeouted .left:before{
+    //         background-color: #e5f8b2;
+    //     }
+    // }
     &[data-category="salads"]{
         &> div .bx-viewport .item.fadeouted .left:before{
             background-color: #e5f8b2;
@@ -2352,7 +2361,7 @@ header {
             }
         }
         .h-name {
-            font-size: 56px;
+            font-size: 52px;
             line-height: 56px;
             font-weight: 900;
             text-align: left;
@@ -2959,7 +2968,7 @@ header {
 @media screen and (max-width:1200px){
 
     .card {
-        &[data-category="salads"]{
+        &[data-category="garnish"]{
             &> div .bx-viewport .item.fadeouted .left:before{
             }
         }
@@ -3289,7 +3298,7 @@ header {
 @media screen and (max-width:1023px){
 
     .card {
-        &[data-category="salads"]{
+        &[data-category="garnish"]{
             &> div .bx-viewport .item.fadeouted .left:before{
             }
         }
@@ -3361,6 +3370,8 @@ header {
                 font-size: 64px;
                 line-height: 64px;
                 font-weight: 900;
+                max-width: 600px;
+                margin: 0 auto;
             }
 
             .inf {
@@ -3675,7 +3686,7 @@ header {
     }
 
     .card {
-        &[data-category="salads"]{
+        &[data-category="garnish"]{
             &> div .bx-viewport .item.fadeouted .left:before{
             }
         }
@@ -4035,7 +4046,7 @@ header {
 @media screen and (max-width:479px){
 
     .card {
-        &[data-category="salads"]{
+        &[data-category="garnish"]{
             &> div .bx-viewport .item.fadeouted .left:before{
             }
         }
@@ -4401,7 +4412,7 @@ header {
 @media screen and (min-width:1300px){
 
     .card {
-        &[data-category="salads"]{
+        &[data-category="garnish"]{
             &> div .bx-viewport .item.fadeouted .left:before{
             }
         }
@@ -4750,7 +4761,7 @@ header {
 @media screen and (min-width:1500px){
 
     .card {
-        &[data-category="salads"]{
+        &[data-category="garnish"]{
             &> div .bx-viewport .item.fadeouted .left:before{
             }
         }
@@ -5099,7 +5110,7 @@ header {
 @media screen and (min-width:1800px){
 
     .card {
-        &[data-category="salads"]{
+        &[data-category="garnish"]{
             &> div .bx-viewport .item.fadeouted .left:before{
             }
         }
@@ -5654,8 +5665,8 @@ body{
                 }
 
                 .list {
-                    width: 600px;
-                    margin-left: 50px;
+                    width: 640px;
+                    margin-left: 10px;
                     height: 60px;
                     display: block;
                     border: none;
@@ -5666,9 +5677,9 @@ body{
 
                     a {
                         display: inline-block;
-                        padding-left: 70px;
-                        background-position: 14px center;
-                        padding-right: 14px;
+                        padding-left: 54px;
+                        background-position: 4px center;
+                        padding-right: 8px;
                         margin-top: 4px;
                     }
 
@@ -5843,7 +5854,7 @@ body{
                 width: 100%;
                 height: 465px;
 
-                .salads {
+                .garnish {
                     line-height: 423px;
                 }
             }
@@ -6208,7 +6219,7 @@ body{
     }
 
     .card {
-        padding-top: 7px;
+        padding-top: 12px;
 
         & > div {
             max-width: 1136px;
@@ -6615,7 +6626,7 @@ body{
                 width: 656px;
                 height: 440px;
 
-                .salads {
+                .garnish {
                     line-height: 400px;
                 }
             }
@@ -7286,7 +7297,7 @@ body{
                 height: 400px;
                 float: left;
 
-                .salads {
+                .garnish {
                     line-height: 363px;
                 }
             }
@@ -7929,6 +7940,8 @@ body{
 
     .sec1 {
         max-width: 480px;
+
+        padding-top: 24px;
         margin: 0 auto 00px;
 
         & > div {
@@ -8144,7 +8157,7 @@ body{
                 margin: 0 auto 16px;
                 height: 416px;
 
-                .salads {
+                .garnish {
                     line-height: 378px;
                     font-size: 85px;
                 }
@@ -8781,12 +8794,14 @@ body{
 
     .sec1 {
         width: 100%;
+        padding-top: 10px;
 
         & > div {
             max-width: 320px;
         }
 
         .sld1 {
+            margin-bottom: 0;
             .main_burg {
                 .slide_1 {
                     a.main {}
@@ -8937,7 +8952,7 @@ body{
                 width: 272px;
                 height: 264px;
 
-                .salads {
+                .garnish {
                     font-size: 56px;
                     line-height: 241px;
                 }

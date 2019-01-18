@@ -118,8 +118,8 @@ card.view = {
             var cat_name = '';
             if (category == 'burgers') {
                 cat_name = 'Бургери';
-            } else if (category == 'salads') {
-                cat_name = 'Cалати';
+            } else if (category == 'garnish') {
+                cat_name = 'Гарніри';
             } else if (category == 'souses') {
 
             } else if (category == 'drinks') {
@@ -256,7 +256,7 @@ card.view = {
 
         card.view.render_slider(category);
 
-        if (category == 'burgers') {
+        if (category == 'burgers' || category == 'garnish') {
         	card.view.souses.show();
         	card.view.render_souses();
         }else{

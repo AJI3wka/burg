@@ -22,7 +22,7 @@ lot_list.controller = {
 
         	var def_obj = {
         		burgers:[],
-        		salads:[],
+        		garnish:[],
         		drinks:[],
         		souses:[]
         	};
@@ -41,7 +41,7 @@ lot_list.controller = {
 
         		}else if(arr[i].parent == '2'){
 
-        			def_obj.salads[def_obj.salads.length] = arr[i];
+        			def_obj.garnish[def_obj.garnish.length] = arr[i];
 
         		}else if(arr[i].parent == '3'){
 

@@ -215,3 +215,50 @@ input {
   100% {
     stroke-dashoffset: 187;
     transform: rotate(450deg); } }
+
+@media screen and (max-width: 767px) {
+  .under-const, .initing .middle {
+    position: static;
+    margin: 0 !important;
+    padding: 60px 20px;
+    width: 100%;
+    height: initial !important; }
+    .under-const .t, .initing .middle .t {
+      font-size: 24px; }
+      .under-const .t.m, .initing .middle .t.m {
+        max-width: 420px;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 24px; }
+        .under-const .t.m span, .initing .middle .t.m span {
+          display: block;
+          float: none;
+          text-align: center;
+          margin-bottom: 20px; }
+        }
+.pow{
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  border-top: 1px solid #ebebeb;
+  height: 24px;
+  line-height: 30px;
+  overflow: hidden;
+
+}
+.pow a{
+  margin-left: 4px;
+  display: inline-block;
+  color: transparent;
+  background-image: url(img/o-logo.png);
+  height: 14px;
+  line-height: 14px;
+  width: 42px;
+  background-size: contain;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  top: -3px;
+  
+}
